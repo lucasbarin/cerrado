@@ -1,0 +1,683 @@
+/* ========================================
+   PROJETO RCM - ESTILOS ESPECÍFICOS
+   ======================================== */
+
+/* NAVEGAÇÃO */
+.rcm-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(247, 244, 238, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--borda);
+  padding: 2rem 5.6rem;
+}
+
+.rcm-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rcm-nav-logo {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
+  line-height: 1.5;
+}
+
+.rcm-nav-links {
+  display: flex;
+  gap: 3.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rcm-nav-links a {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--cinza);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+
+.rcm-nav-links a:hover,
+.rcm-nav-links a.active {
+  color: var(--verde-escuro);
+}
+
+/* HERO */
+.rcm-hero {
+  min-height: 100vh;
+  background: var(--verde-profundo);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 5.6rem 8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.rcm-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.rcm-hero-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.3);
+  font-size: 2.4rem;
+}
+
+.rcm-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9,46,32,0) 0%, rgba(9,46,32,0.7) 100%);
+  z-index: 2;
+}
+
+.rcm-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 90rem;
+}
+
+.rcm-hero-title {
+  font-family: var(--font-destaque);
+  font-size: 9.1rem; /* ~68.6pt */
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--branco-suave);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.rcm-hero-title em {
+  font-style: italic;
+  color: var(--verde);
+}
+
+.rcm-hero-scroll {
+  position: absolute;
+  bottom: 4.4rem;
+  right: 5.6rem;
+  z-index: 3;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(237, 233, 223, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.rcm-hero-scroll-line {
+  width: 4.4rem;
+  height: 1px;
+  background: rgba(237, 233, 223, 0.15);
+}
+
+/* CONTAINER */
+.rcm-container {
+  max-width: 192rem; /* 1920px */
+  margin: 0 auto;
+  padding-left: 5.6rem;
+  padding-right: 5.6rem;
+}
+
+/* SEÇÕES */
+.rcm-section {
+  padding: 12rem 0;
+}
+
+.rcm-section-cream {
+  background: var(--cream);
+}
+
+.rcm-section-verde {
+  background: var(--verde);
+  color: var(--verde-profundo);
+}
+
+.rcm-section-white {
+  background: var(--branco);
+}
+
+.rcm-section-dark {
+  background: var(--verde-profundo);
+  color: var(--branco-suave);
+}
+
+/* TAG */
+.rcm-tag {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 4rem;
+}
+
+.rcm-tag-dark {
+  color: var(--verde-profundo);
+}
+
+.rcm-tag-light {
+  color: var(--verde);
+}
+
+/* LAYOUTS DE 2 COLUNAS */
+.rcm-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 8rem;
+  align-items: start;
+}
+
+.rcm-two-col-left,
+.rcm-two-col-right {
+  /* Apenas containers */
+}
+
+/* HEADLINES */
+.rcm-headline-sticky {
+  font-family: var(--font-destaque);
+  font-size: 5.6rem; /* ~54pt */
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--verde-profundo);
+  position: sticky;
+  top: 12rem;
+}
+
+.rcm-headline-sticky em {
+  font-style: italic;
+  color: var(--verde);
+  display: block;
+}
+
+.rcm-headline {
+  font-family: var(--font-destaque);
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--verde-profundo);
+}
+
+.rcm-headline em {
+  font-style: italic;
+  color: var(--verde);
+}
+
+.rcm-headline-light {
+  font-family: var(--font-destaque);
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--branco-suave);
+  margin-bottom: 3.2rem;
+}
+
+.rcm-headline-light em {
+  font-style: italic;
+  color: var(--verde);
+}
+
+/* DIVIDER */
+.rcm-divider {
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--verde);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin: 4.4rem 0 2.8rem;
+}
+
+.rcm-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--borda);
+}
+
+/* LISTA */
+.rcm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.rcm-list li {
+  padding: 1.4rem 2rem;
+  background: white;
+  border-left: 2px solid transparent;
+  font-size: 1.4rem;
+  color: var(--cinza);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.rcm-list li:hover {
+  border-color: var(--verde);
+  background: #F0FAF5;
+}
+
+/* PROPÓSITO */
+.rcm-prop-statement {
+  font-family: var(--font-destaque);
+  font-size: 7.0rem; /* ~70pt */
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--verde-profundo);
+  max-width: 86rem;
+}
+
+.rcm-prop-body {
+  margin-top: 5.6rem;
+  max-width: 58rem;
+}
+
+.rcm-prop-body p {
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: rgba(9, 46, 32, 0.75);
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+/* INTRO BLOCK */
+.rcm-intro-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  margin-bottom: 7.2rem;
+  align-items: end;
+}
+
+.rcm-intro-right p {
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: var(--cinza);
+  font-weight: 300;
+}
+
+/* GRID 3 COLUNAS */
+.rcm-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2rem;
+  background: var(--preto);
+}
+
+/* CARDS */
+.rcm-card {
+  background: white;
+  padding: 5.6rem 4.4rem;
+  transition: background 0.35s;
+  cursor: default;
+}
+
+.rcm-card:hover {
+  background: var(--verde-profundo);
+}
+
+.rcm-card-num {
+  font-family: var(--font-destaque);
+  font-size: 8rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.04);
+  line-height: 1;
+  margin-bottom: 1.4rem;
+  transition: color 0.35s;
+}
+
+.rcm-card:hover .rcm-card-num {
+  color: rgba(237, 233, 223, 0.1);
+}
+
+.rcm-card-title {
+  font-family: var(--font-destaque);
+  font-size: 3.8rem; /* ~38pt */
+  font-weight: 600;
+  color: var(--verde-escuro);
+  margin-bottom: 1.4rem;
+  line-height: 1.2;
+  transition: color 0.35s;
+}
+
+.rcm-card:hover .rcm-card-title {
+  color: var(--branco-suave);
+}
+
+.rcm-card-bar {
+  width: 2.8rem;
+  height: 0.2rem;
+  background: var(--verde);
+  margin-bottom: 2.2rem;
+  transition: background 0.35s;
+}
+
+.rcm-card:hover .rcm-card-bar {
+  background: var(--verde);
+}
+
+.rcm-card-text {
+  font-size: 1.5rem;
+  line-height: 1.72;
+  color: var(--cinza);
+  font-weight: 300;
+  transition: color 0.35s;
+}
+
+.rcm-card:hover .rcm-card-text {
+  color: rgba(237, 233, 223, 0.8);
+}
+
+/* D.O. SECTION */
+.rcm-do-body p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: rgba(237, 233, 223, 0.68);
+  font-weight: 300;
+  margin-bottom: 2.2rem;
+}
+
+.rcm-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  margin-bottom: 2.4rem;
+}
+
+.rcm-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 3.2rem 2.8rem;
+  transition: background 0.25s;
+}
+
+.rcm-stat-card:hover {
+  background: rgba(29, 181, 122, 0.1);
+}
+
+.rcm-stat-val {
+  font-family: var(--font-destaque);
+  font-size: 4.9rem; /* ~48.9pt */
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+.rcm-stat-lbl {
+  font-size: 1.3rem;
+  color: rgba(237, 233, 223, 0.5);
+  font-weight: 300;
+  line-height: 1.45;
+  display: block;
+}
+
+/* ACHIEVE LIST */
+.rcm-achieve-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rcm-achieve-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+  padding: 1.6rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid transparent;
+  font-size: 1.4rem;
+  color: rgba(237, 233, 223, 0.6);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.rcm-achieve-list li:hover {
+  border-color: var(--verde);
+  background: rgba(29, 181, 122, 0.05);
+  color: rgba(237, 233, 223, 0.85);
+}
+
+.rcm-achieve-dot {
+  color: var(--verde);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* REBRANDING */
+.rcm-reb-body {
+  max-width: 64rem;
+  margin-bottom: 6rem;
+}
+
+.rcm-reb-body p {
+  font-size: 1.7rem;
+  line-height: 1.8;
+  color: var(--cinza-texto);
+  font-weight: 300;
+  margin-bottom: 2.2rem;
+}
+
+.rcm-brand-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 6rem;
+}
+
+.rcm-brand-item {
+  text-align: center;
+}
+
+.rcm-brand-placeholder {
+  width: 100%;
+  height: 40rem;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.rcm-brand-label {
+  font-size: 1.2rem;
+  color: var(--cinza);
+}
+
+/* IMAGEM FULL */
+.rcm-section-image {
+  min-height: 60rem;
+  position: relative;
+}
+
+.rcm-image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 60rem;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 2.4rem;
+}
+
+/* FAQ */
+.rcm-faq-layout {
+  margin-top: 5.6rem;
+}
+
+.rcm-faq-sidebar {
+  position: sticky;
+  top: 12rem;
+}
+
+.rcm-faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rcm-faq-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.rcm-faq-item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rcm-faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.6rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--branco-suave);
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.rcm-faq-q::-webkit-details-marker {
+  display: none;
+}
+
+.rcm-faq-q:hover {
+  color: var(--verde);
+}
+
+.rcm-faq-icon {
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--verde);
+  font-weight: 300;
+  transition: transform 0.3s, background 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+
+.rcm-faq-item[open] .rcm-faq-icon {
+  transform: rotate(45deg);
+  background: var(--verde);
+  color: white;
+  border-color: var(--verde);
+}
+
+.rcm-faq-a {
+  padding: 0 0 2.8rem;
+}
+
+.rcm-faq-a p {
+  font-size: 1.5rem;
+  line-height: 1.78;
+  color: rgba(237, 233, 223, 0.6);
+  font-weight: 300;
+  max-width: 54rem;
+}
+
+/* FOOTER */
+.rcm-footer {
+  background: var(--preto);
+  color: var(--branco-suave);
+  padding: 8rem 0 4rem;
+}
+
+.rcm-footer .rcm-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 6rem;
+}
+
+.rcm-footer-title {
+  font-family: var(--font-destaque);
+  font-size: 4.7rem; /* ~47pt */
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--branco-suave);
+  letter-spacing: -0.02em;
+}
+
+.rcm-footer-title em {
+  font-style: italic;
+  color: var(--verde);
+}
+
+.rcm-footer-download h4 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.rcm-footer-download ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rcm-footer-download li {
+  margin-bottom: 1rem;
+}
+
+.rcm-footer-download a {
+  color: rgba(237, 233, 223, 0.6);
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.2s;
+}
+
+.rcm-footer-download a:hover {
+  color: var(--verde);
+}
+
+.rcm-footer-copy {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.rcm-footer-copy p {
+  font-size: 1.2rem;
+  color: rgba(237, 233, 223, 0.4);
+  margin: 0;
+}
