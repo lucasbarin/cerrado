@@ -3,6 +3,40 @@
 /* trigger when page is ready */
 $(document).ready(function (){
 
+    // Smooth scroll elegante com easing customizado
+    $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault();
+        
+        const target = $(this.hash);
+        if (target.length) {
+            const targetPosition = target.offset().top;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 800; // 0.8 segundo
+            let start = null;
+            
+            // Easing function: easeOutQuint (início instantâneo, desacelera apenas no final)
+            const easeOutQuint = (t) => {
+                return 1 - Math.pow(1 - t, 5);
+            };
+            
+            const animation = (currentTime) => {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const progress = Math.min(timeElapsed / duration, 1);
+                const ease = easeOutQuint(progress);
+                
+                window.scrollTo(0, startPosition + (distance * ease));
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            };
+            
+            requestAnimationFrame(animation);
+        }
+    });
+
     $("a[rel=external]").click(function(){
         window.open(this.href);
         return false;

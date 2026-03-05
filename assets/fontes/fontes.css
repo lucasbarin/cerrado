@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Raptor Text Premium';
+    src: url('RaptorTextPremium-Medium.woff2') format('woff2'),
+        url('RaptorTextPremium-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raptor Text Premium';
+    src: url('RaptorTextPremium-SemiBold.woff2') format('woff2'),
+        url('RaptorTextPremium-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+/*
+@font-face {
+    font-family: 'Raptor Text Premium';
+    src: url('RaptorTextPremium-Regular.woff2') format('woff2'),
+        url('RaptorTextPremium-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*/

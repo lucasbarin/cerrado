@@ -6,7 +6,7 @@
   --branco: #ffffff;
   --verde: #00bb7e;
   --verde-escuro: #3b7065;
-  
+
   /* Fonte do projeto */
   --font-principal: 'Raptor Text Premium', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -15,14 +15,15 @@
    BASE - Desktop First (1920px)
    ======================================== */
 html {
-  font-size: 62.5%; /* 1rem = 10px (base) */
+  font-size: 62.5%;
+  /* 1rem = 10px (base) */
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-principal);
-  color: var(--verde-escuro);
-  background-color: var(--branco);
+  color: var(--branco);
+  background-color: var(--verde);
   overflow-x: hidden;
 }
 
@@ -30,49 +31,245 @@ body {
    CONTAINER
    ======================================== */
 .container {
-  max-width: 192rem; /* 1920px */
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  max-width: 192rem;
+  /* 1920px */
+  padding-left: 10rem;
+  /* 100px */
+  padding-right: 10rem;
+  /* 100px */
   margin: 0 auto;
+  /* Área de conteúdo: 1720px (1920px - 200px) */
 }
 
 /* ========================================
    ELEMENTOS - Dimensões (desktop 1920px)
    ======================================== */
 .logotipo {
-  width: 48.4rem; /* 484px */
-  height: 24.5rem; /* 245px */
+  width: 48.4rem;
+  /* 484px */
+  height: 24.5rem;
+  /* 245px */
+}
+
+.headline {
+  width: 41.7rem;
+  /* 417px */
+  height: 18.8rem;
+  /* 188px */
+  margin-bottom: 15rem;
+  display: block;
+  margin-left: auto;
 }
 
 .rolar {
-  width: 13.4rem; /* 134px */
-  height: 3.5rem; /* 35px */
+  width: 13.4rem;
+  /* 134px */
+  height: 3.5rem;
+  /* 35px */
+  display: inline-block;
+  animation: scroll-hint 5s ease-in-out infinite;
 }
 
 .bt-play {
-  width: 17.2rem; /* 172px */
-  height: 9.9rem; /* 99px */
+  width: 17.2rem;
+  /* 172px */
+  height: 9.9rem;
+  /* 99px */
 }
 
 .logo-do {
-  width: 26.9rem; /* 269px */
-  height: 37.2rem; /* 372px */
+  width: 26.9rem;
+  /* 269px */
+  height: 37.2rem;
+  /* 372px */
 }
 
 .mapa {
-  width: 41.3rem; /* 413px */
-  height: 35.1rem; /* 351px */
+  width: 41.3rem;
+  /* 413px */
+  height: 35.1rem;
+  /* 351px */
 }
 
 .icone-mais {
-  width: 4.4rem; /* 44px */
-  height: 4.4rem; /* 44px */
+  width: 4.4rem;
+  /* 44px */
+  height: 4.4rem;
+  /* 44px */
 }
 
 .icone-social {
-  width: 4.4rem; /* 44px */
-  height: 4.4rem; /* 44px */
+  width: 4.4rem;
+  /* 44px */
+  height: 4.4rem;
+  /* 44px */
 }
+
+/* ========================================
+   SEÇÕES
+   ======================================== */
+
+/* Animação suave de rotação para grafismo */
+@keyframes rotacao-suave {
+
+  0%,
+  100% {
+    transform: rotate(-2deg) scale(1.1) translateY(5%);
+  }
+
+  50% {
+    transform: rotate(2deg) scale(1.1) translateY(5%);
+  }
+}
+
+/* Animação de scroll hint para botão rolar */
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(0);
+  }
+  4% {
+    transform: translateY(0.5rem); /* 5px */
+  }
+  8% {
+    transform: translateY(0);
+  }
+  12% {
+    transform: translateY(0.5rem); /* 5px */
+  }
+  16%, 100% {
+    transform: translateY(0);
+  }
+}
+
+#inicio {
+  max-width: 255rem;
+  /* 2550px */
+  margin: 0 auto;
+  min-height: 119rem;
+  /* 1190px */
+  min-height: 100vh;
+  background-image: url('../images/2x/img-banner.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+#inicio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/2x/grafismo-banner-multiply.png');
+  background-size: contain;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+  pointer-events: none;
+  /* Permite cliques através do pseudo-elemento */
+  animation: rotacao-suave 8s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* ========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+  background-color: transparent;
+  padding: 10.5rem 0 0 0;
+  /* 105px */
+  position: relative;
+  z-index: 1;
+}
+
+.navbar>.container {
+  align-items: flex-start;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-collapse {
+  align-self: flex-start;
+  margin-top: 8rem;
+  /* 80px */
+}
+
+.navbar-brand .logotipo {
+  display: block;
+  height: auto;
+}
+
+.navbar-nav {
+  align-items: flex-start;
+  gap: 4rem;
+  /* Espaçamento entre os links */
+}
+
+.navbar-nav .nav-link {
+  color: var(--branco);
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.9rem;
+  /* 9px de distância do texto */
+  left: 0;
+  width: 0;
+  height: 0.2rem;
+  /* 2px */
+  background-color: var(--branco);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after {
+  width: 100%;
+}
+
+.navbar-toggler {
+  border-color: var(--branco);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Banner Content - Conteúdo sobre o banner */
+.banner-content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  padding-bottom: 12rem;
+  /* Espaço da borda inferior */
+  pointer-events: none;
+  /* Permite cliques através do container */
+}
+
+.banner-content .row {
+  width: 100%;
+  margin: 0;
+  pointer-events: auto;
+  /* Habilita cliques no conteúdo */
+}
+
+
 
 /* ========================================
    TIPOGRAFIA - Desktop (1920px)
@@ -82,125 +279,203 @@ body {
 h1,
 .titulo-banner {
   font-family: var(--font-principal);
-  font-size: 6.9rem; /* 69px */
-  line-height: 6.9rem; /* 69px */
-  font-weight: 500; /* semibold */
+  font-size: 6.9rem;
+  /* 69px */
+  line-height: 6.9rem;
+  /* 69px */
+  font-weight: 600;
+  /* semibold */
   margin-bottom: 0;
+  /* Glifo alternativo para 'r' minúsculo */
+  font-feature-settings: 'ss03' 1;
 }
 
 /* Outro Título - 70px/83px - semibold */
 h2,
 .outro-titulo {
   font-family: var(--font-principal);
-  font-size: 7.0rem; /* 70px */
-  line-height: 8.3rem; /* 83px */
-  font-weight: 500; /* semibold */
+  font-size: 7.0rem;
+  /* 70px */
+  line-height: 8.3rem;
+  /* 83px */
+  font-weight: 600;
+  /* semibold */
   margin-bottom: 0;
+  /* Glifo alternativo para 'r' minúsculo */
+  font-feature-settings: 'ss03' 1;
 }
 
 /* Título Sessão - 54px/64px - semibold */
 h3,
 .titulo-sessao {
   font-family: var(--font-principal);
-  font-size: 5.4rem; /* 54px */
-  line-height: 6.4rem; /* 64px */
-  font-weight: 500; /* semibold */
+  font-size: 5.4rem;
+  /* 54px */
+  line-height: 6.4rem;
+  /* 64px */
+  font-weight: 600;
+  /* semibold */
   margin-bottom: 0;
+  /* Glifo alternativo para 'r' minúsculo */
+  font-feature-settings: 'ss03' 1;
 }
 
 /* Título Card - 49px/59px - semibold */
 h4,
 .titulo-card {
   font-family: var(--font-principal);
-  font-size: 4.9rem; /* 49px */
-  line-height: 5.9rem; /* 59px */
-  font-weight: 500; /* semibold */
+  font-size: 4.9rem;
+  /* 49px */
+  line-height: 5.9rem;
+  /* 59px */
+  font-weight: 600;
+  /* semibold */
   margin-bottom: 0;
+  /* Glifo alternativo para 'r' minúsculo */
+  font-feature-settings: 'ss03' 1;
 }
 
 /* Título - 36px/43px - semibold */
 h5,
 .titulo {
   font-family: var(--font-principal);
-  font-size: 3.6rem; /* 36px */
-  line-height: 4.3rem; /* 43px */
-  font-weight: 500; /* semibold */
-  margin-bottom: 0;
+  font-size: 3.6rem;
+  /* 36px */
+  line-height: 4.3rem;
+  /* 43px */
+  font-weight: 600;
+  /* semibold */
+  margin-bottom: 5.8rem;
+  margin-top: 5.8rem;
+  /* 58px */
+  /* Glifo alternativo para 'r' minúsculo */
+  font-feature-settings: 'ss03' 1;
 }
 
 /* BT Download - 32px/38px - medium */
 h6,
 .bt-download {
   font-family: var(--font-principal);
-  font-size: 3.2rem; /* 32px */
-  line-height: 3.8rem; /* 38px */
-  font-weight: 600; /* medium */
+  font-size: 3.2rem;
+  /* 32px */
+  line-height: 3.8rem;
+  /* 38px */
+  font-weight: 500;
+  /* medium */
   margin-bottom: 0;
 }
 
 /* Menu Principal - 29px/29px - semibold */
 .menu-principal {
   font-family: var(--font-principal);
-  font-size: 2.9rem; /* 29px */
-  line-height: 2.9rem; /* 29px */
-  font-weight: 500; /* semibold */
+  font-size: 2.9rem;
+  /* 29px */
+  line-height: 2.9rem;
+  /* 29px */
+  font-weight: 600;
+  /* semibold */
 }
 
 /* Corpo - 28px/33px - medium */
 p,
 .corpo {
   font-family: var(--font-principal);
-  font-size: 2.8rem; /* 28px */
-  line-height: 3.3rem; /* 33px */
-  font-weight: 600; /* medium */
+  font-size: 2.8rem;
+  /* 28px */
+  line-height: 3.3rem;
+  /* 33px */
+  font-weight: 500;
+  /* medium */
   margin-bottom: 1.6rem;
+}
+
+/* Lista de Textos Box */
+.lista-textos-box {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem; /* 1px de espaçamento entre itens */
+  margin-top: 8rem;
 }
 
 /* Textos Box - 25px/29px - medium */
 .textos-box {
   font-family: var(--font-principal);
-  font-size: 2.5rem; /* 25px */
-  line-height: 2.9rem; /* 29px */
-  font-weight: 600; /* medium */
+  font-size: 2.5rem;
+  /* 25px */
+  line-height: 2.9rem;
+  /* 29px */
+  font-weight: 500;
+  /* medium */
+  background-color: var(--verde-escuro);
+  padding: 2rem; /* 20px */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.textos-box:hover {
+  background-color: #457766;
 }
 
 /* Título Footer - 47px/47px - semibold */
 .titulo-footer {
   font-family: var(--font-principal);
-  font-size: 4.7rem; /* 47px */
-  line-height: 4.7rem; /* 47px */
-  font-weight: 500; /* semibold */
+  font-size: 4.7rem;
+  /* 47px */
+  line-height: 4.7rem;
+  /* 47px */
+  font-weight: 600;
+  /* semibold */
   margin-bottom: 0;
 }
 
 /* Copy - 20px/24px - medium */
 .copy {
   font-family: var(--font-principal);
-  font-size: 2.0rem; /* 20px */
-  line-height: 2.4rem; /* 24px */
-  font-weight: 600; /* medium */
+  font-size: 2.0rem;
+  /* 20px */
+  line-height: 2.4rem;
+  /* 24px */
+  font-weight: 500;
+  /* medium */
 }
+
+.spacer-sessao {
+  padding-top: 17rem;
+  /* 170px */
+  ;
+
+  padding-bottom: 17rem;
+  /* 170px */
+  ;
+}
+
+.texto-jornada {
+  padding-top: 2rem;
+  /* 40px */
+}
+
+.texto-jornada > span h5:first-of-type {
+  margin-top: 0;
+}
+
+
+
 
 /* ========================================
    MEDIA QUERIES - Breakpoints
    ======================================== */
 
 /* Large devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) {
-  
-}
+@media (max-width: 1199.98px) {}
 
 /* Medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-  
-}
+@media (max-width: 991.98px) {}
 
 /* Small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
-  
-}
+@media (max-width: 767.98px) {}
 
 /* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-  
-}
+@media (max-width: 575.98px) {}

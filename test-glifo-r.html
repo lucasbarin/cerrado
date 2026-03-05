@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Glifo R - Raptor Text</title>
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <style>
+        body {
+            padding: 4rem;
+            background: #f5f5f5;
+        }
+        .test-box {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+        }
+        .test-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        .test-r {
+            font-family: var(--font-principal);
+            font-size: 8rem;
+            font-weight: 500;
+            color: #00bb7e;
+            line-height: 1.2;
+        }
+        /* Testes individuais */
+        .ss01 { font-feature-settings: 'ss01' 1; }
+        .ss02 { font-feature-settings: 'ss02' 1; }
+        .ss03 { font-feature-settings: 'ss03' 1; }
+        .ss04 { font-feature-settings: 'ss04' 1; }
+        .ss05 { font-feature-settings: 'ss05' 1; }
+        .ss06 { font-feature-settings: 'ss06' 1; }
+        .ss07 { font-feature-settings: 'ss07' 1; }
+        .ss08 { font-feature-settings: 'ss08' 1; }
+        .ss09 { font-feature-settings: 'ss09' 1; }
+        .ss10 { font-feature-settings: 'ss10' 1; }
+        .normal { font-feature-settings: normal; }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 3rem; margin-bottom: 4rem;">Teste de Glifo Alternativo - Letra "r"</h1>
+    
+    <div class="test-box">
+        <h2>NORMAL (sem feature)</h2>
+        <div class="test-r normal">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss01 (altera 'a')</h2>
+        <div class="test-r ss01">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss02</h2>
+        <div class="test-r ss02">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss03</h2>
+        <div class="test-r ss03">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss04</h2>
+        <div class="test-r ss04">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss05</h2>
+        <div class="test-r ss05">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss06</h2>
+        <div class="test-r ss06">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss07</h2>
+        <div class="test-r ss07">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss08</h2>
+        <div class="test-r ss08">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss09</h2>
+        <div class="test-r ss09">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div class="test-box">
+        <h2>ss10</h2>
+        <div class="test-r ss10">Cerrado Mineiro rrrrr</div>
+    </div>
+
+    <div style="margin-top: 4rem; padding: 2rem; background: #fffbcc; border: 2px solid #ffeb3b;">
+        <h3 style="font-size: 2rem; margin-bottom: 1rem;">📝 Instruções:</h3>
+        <ol style="font-size: 1.6rem; line-height: 2;">
+            <li>Compare cada caixa com a versão "NORMAL" no topo</li>
+            <li>Identifique qual ss0X altera o glifo do "r"</li>
+            <li>Copie o código correto (ex: ss03) para o custom.css</li>
+            <li>Descomente a linha correspondente em h1, h2, h3</li>
+        </ol>
+    </div>
+</body>
+</html>

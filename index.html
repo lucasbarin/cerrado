@@ -1,206 +1,171 @@
 <!doctype html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTML Reset Master 2025 - Exemplos</title>
-    
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Seus CSS customizados -->
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="assets/css/custom.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/responsive.css">
+
+    <!--
+################ Padrão de títulos/resumo rede sociais
+<?
+if (empty($urlimg) or !file_exists($urlimg)){
+	$urlimg = "http://www.dominio.com.br/lib/img/imgWeb.jpg";
+} 
+
+if (empty($resumo)){
+	$resumo = "Texto de resumo padrão";
+}
+
+?>
+ -->
+    <title>Título</title>
+    <!-- 
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="http://www.dominio.com.br">
+<meta name="twitter:title" content="<? echo $titulo; ?>Título">
+<meta name="twitter:description" content="<? echo $resumo ?>">
+<meta name="twitter:url" content="<? echo url_atual2(); ?>">
+
+<meta property="og:title" content="<? echo $titulo; ?>Título" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="<? echo $resumo ?>" />
+<meta property="og:url" content="<? echo url_atual2(); ?>" />
+<meta property="og:image" content="<? echo $urlimg; ?>" />
+-->
+    <meta name="title" content="<? echo $titulo; ?>Título" />
+    <meta name="author" content="" />
+    <meta name="description" content="<? echo $resumo ?>" />
+
+    <meta name="Copyright" content="" />
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
 </head>
+
 <body>
 
-    <!-- Navbar Exemplo -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Logo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#servicos">Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="section bg-light" id="home">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h1 class="text-display mb-3">HTML Reset Master 2025</h1>
-                    <p class="text-lead mb-4">Sistema de reset CSS com tipografia responsiva baseada em REM. Proporcionalidade perfeita em todos os dispositivos.</p>
-                    <button class="btn btn-primary btn-lg me-2">Começar Projeto</button>
-                    <button class="btn btn-outline-secondary btn-lg">Documentação</button>
-                </div>
-                <div class="col-lg-5">
-                    <div class="bg-secondary text-white p-5 text-center" style="height: 400px; display: flex; align-items: center; justify-content: center;">
-                        <p class="mb-0">Área para imagem/ilustração</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Typography Section -->
-    <section class="section" id="sobre">
-        <div class="container">
-            <h2 class="mb-4">Tipografia Responsiva</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1>Heading 1 (4.8rem)</h1>
-                    <h2>Heading 2 (3.6rem)</h2>
-                    <h3>Heading 3 (2.8rem)</h3>
-                    <h4>Heading 4 (2.4rem)</h4>
-                    <h5>Heading 5 (2.0rem)</h5>
-                    <h6>Heading 6 (1.8rem)</h6>
-                </div>
-                <div class="col-lg-6">
-                    <p class="text-lead">Texto Lead (2.0rem) - Destaque para introduções e subtítulos importantes.</p>
-                    <p>Parágrafo padrão (1.6rem) - O texto base do site mantém legibilidade ideal em todos os dispositivos. O sistema REM garante proporcionalidade perfeita.</p>
-                    <p class="text-small">Texto pequeno (1.4rem) - Para notas de rodapé e informações secundárias.</p>
-                    <p class="text-tiny">Texto tiny (1.2rem) - Para disclaimers e textos legais.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Buttons Section -->
-    <section class="section bg-light" id="servicos">
-        <div class="container">
-            <h2 class="mb-4">Botões Proporcionais</h2>
-            <div class="row">
-                <div class="col-lg-4 mb-3">
-                    <h4>Tamanhos</h4>
-                    <button class="btn btn-primary btn-lg mb-2">Botão Grande</button><br>
-                    <button class="btn btn-primary mb-2">Botão Normal</button><br>
-                    <button class="btn btn-primary btn-sm mb-2">Botão Pequeno</button>
-                </div>
-                <div class="col-lg-4 mb-3">
-                    <h4>Variações</h4>
-                    <button class="btn btn-primary mb-2">Primary</button><br>
-                    <button class="btn btn-secondary mb-2">Secondary</button><br>
-                    <button class="btn btn-success mb-2">Success</button>
-                </div>
-                <div class="col-lg-4 mb-3">
-                    <h4>Outline</h4>
-                    <button class="btn btn-outline-primary mb-2">Primary</button><br>
-                    <button class="btn btn-outline-secondary mb-2">Secondary</button><br>
-                    <button class="btn btn-outline-success mb-2">Success</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Spacing Section -->
-    <section class="section" id="contato">
-        <div class="container">
-            <h2 class="mb-5">Sistema de Espaçamento</h2>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="mb-1 p-3 bg-light">Margin Bottom 1 (0.8rem)</div>
-                    <div class="mb-2 p-3 bg-light">Margin Bottom 2 (1.6rem)</div>
-                    <div class="mb-3 p-3 bg-light">Margin Bottom 3 (2.4rem)</div>
-                    <div class="mb-4 p-3 bg-light">Margin Bottom 4 (3.2rem)</div>
-                    <div class="mb-5 p-3 bg-light">Margin Bottom 5 (4.8rem)</div>
-                </div>
-                <div class="col-lg-4">
-                    <h4>Características</h4>
-                    <ul>
-                        <li>Base: <code>html { font-size: 62.5%; }</code></li>
-                        <li>1rem = 10px (navegador padrão)</li>
-                        <li>Respeita preferências do usuário</li>
-                        <li>Proporcionalidade automática</li>
-                        <li>80 media queries (a cada 20px)</li>
-                        <li>Reset mobile em 767px</li>
+    <section id="inicio">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/SVG/logotipo-cerrado-mineiro.svg" alt="Cerrado Mineiro" class="logotipo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link menu-principal" href="#a-jornada">A Jornada</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-principal" href="#proposito">O Propósito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-principal" href="#do-cerrado">D.O. Cerrado Mineiro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-principal" href="#rebranding">Rebranding</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-principal" href="#faqs">FAQ's</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- Grid Example -->
-    <section class="section bg-light">
-        <div class="container">
-            <h2 class="mb-4">Grid Bootstrap Compatível</h2>
-            <div class="row g-3">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="bg-primary text-white p-4 text-center">
-                        <h4>Card 1</h4>
-                        <p>Conteúdo proporcional</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="bg-secondary text-white p-4 text-center">
-                        <h4>Card 2</h4>
-                        <p>Conteúdo proporcional</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="bg-success text-white p-4 text-center">
-                        <h4>Card 3</h4>
-                        <p>Conteúdo proporcional</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="bg-info text-white p-4 text-center">
-                        <h4>Card 4</h4>
-                        <p>Conteúdo proporcional</p>
-                    </div>
+        <div class="container banner-content">
+            <div class="row">
+                <div class="col-12 text-end">
+                    <img src="assets/images/SVG/headline.svg" class="headline"
+                        alt="Um Futuro Regenerativo Para o Café.">
+                    <a href="#a-jornada"><img src="assets/images/SVG/rolar.svg" alt="Rolar" class="rolar"></a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="section bg-dark text-white">
+    <span id="a-jornada"></span>
+    <section class="spacer-sessao">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <h4>HTML Reset Master 2025</h4>
-                    <p>Sistema profissional de reset CSS com tipografia responsiva baseada em REM.</p>
+                <div class="col-4">
+                    <h3>A Jornada</h3>
                 </div>
-                <div class="col-lg-3">
-                    <h5>Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50">Documentação</a></li>
-                        <li><a href="#" class="text-white-50">Exemplos</a></li>
-                        <li><a href="#" class="text-white-50">GitHub</a></li>
+                <div class="col-8 texto-jornada">
+                    <span class="d-none d-md-block">
+
+                        <h5>Um legado construído com atitude.</h5>
+                        <p>Na Região do Cerrado Mineiro, sempre fomos pioneiros. Nosso espírito de inovação <br>
+                            e empreendedorismo posicionou a origem e nos trouxe o reconhecimento. Cada passo <br>
+                            dado e cada conquista refletem a atitude e o comprometimento da nossa gente.<br><br>
+                            Fomos os primeiros a criar uma identidade coletiva para o café brasileiro. Os primeiros<br>
+                            a conquistar a Denominação de Origem para cafés. A primeira Região a implementar<br>
+                            um Controle de Origem e Qualidade. Os primeiros a ter um produtor com<br>
+                            certificação regenerativa no mundo.<br><br>
+                            É este o legado que inspira, fortalece nossa identidade e nos legitima.</p>
+
+                        <h5>De origem a um movimento sem fronteiras.</h5>
+                        <p>Mais do que uma origem em uma era de transformação, estamos em uma jornada <br>
+                            de evolução para um ecossistema colaborativo, onde autenticidade, inovação e <br>
+                            regeneração se unem em um movimento sem fronteiras, projetando nossa região <br>
+                            como impulsionadora de transformação. Um laboratório vivo, onde <br>
+                            meio ambiente, as pessoas e os negócios prosperam em harmonia.
+                        </p>
+
+                        <h5>De produto á visão de mundo.</h5>
+                        <p>Nossa estratégia avança em uma direção clara: ampliar uma identidade ja reconhecida <br>
+                            pela qualidade do produto para uma identidade que integra visão de mundo, projetos <br>
+                            conectados e geração de impacto real para o território. <br>
+                            Uma marca territorial não apenas promove produtos. Ela educa, engaja e inspira <br>
+                            mudanças reais, gerando valor compartilhado para todo o ecossistema do território.</p>
+
+                    </span>
+
+                    <ul class="lista-textos-box">
+                        <li class="textos-box">- Empreendedorismo cooperativo e governança de território</li>
+                        <li class="textos-box">- Cafeicultura de vanguarda e origem controlada</li>
+                        <li class="textos-box">- Inovação tecnológica e pesquisa aplicada</li>
+                        <li class="textos-box">- Cultura de região e turismo de experiência</li>
+                        <li class="textos-box">- Educação e formação de futuras gerações</li>
+                        <li class="textos-box">- Bem-estar e prosperidade como valores emergentes</li>
                     </ul>
+
                 </div>
-                <div class="col-lg-3">
-                    <h5>Contato</h5>
-                    <ul class="list-unstyled">
-                        <li class="text-white-50">contato@exemplo.com</li>
-                        <li class="text-white-50">(11) 9999-9999</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="bg-secondary">
-            <div class="text-center text-white-50 text-small">
-                <p class="mb-0">© 2025 - Desenvolvido com sistema de tipografia proporcional</p>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/custom.js"></script>
 </body>
+
 </html>
