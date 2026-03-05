@@ -481,6 +481,7 @@ p,
   height: 100%;
   object-fit: cover;
   display: block;
+  z-index: 1;
 }
 
 .video-container .bt-play {
@@ -490,7 +491,7 @@ p,
   transform: translate(-50%, -50%);
   transition: transform 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
-  z-index: 2;
+  z-index: 3;
   pointer-events: auto;
 }
 
@@ -507,6 +508,7 @@ p,
   height: 100%;
   object-fit: cover;
   display: block;
+  z-index: 2;
 }
 
 /* ========================================
