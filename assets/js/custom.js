@@ -3,6 +3,39 @@
 /* trigger when page is ready */
 $(document).ready(function (){
 
+    // Video player - trocar placeholder por vídeo ao clicar
+    $('#videoContainer').on('click', function() {
+        const container = $(this);
+        const placeholder = $('#videoPlaceholder');
+        const playButton = $('#playButton');
+        
+        // Remove placeholder e play button
+        placeholder.fadeOut(300);
+        playButton.fadeOut(300, function() {
+            // Cria e insere o elemento de vídeo
+            const video = $('<video>', {
+                controls: true,
+                autoplay: true,
+                css: {
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                }
+            });
+            
+            const source = $('<source>', {
+                src: 'assets/video/video.mp4',
+                type: 'video/mp4'
+            });
+            
+            video.append(source);
+            container.append(video);
+            
+            // Remove o cursor pointer
+            container.css('cursor', 'default');
+        });
+    });
+
     // Smooth scroll elegante com easing customizado
     $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
