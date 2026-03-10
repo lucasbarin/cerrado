@@ -230,7 +230,7 @@
   }
 }
 
-/* MOBILE - Reset em 992px (base 10px = 62.5%) */
+/* MOBILE - Reset em 992px (base 10px = 62.5%) para referência mobile pixel perfect */
 @media (max-width: 992px) {
   html {
     font-size: 62.5%; /* 10px - Reset para base mobile */
@@ -293,118 +293,120 @@
     font-size: 7.78px;
   }
 }
-@media (max-width: 752px) {
+
+/* MOBILE - Reset secundário em 767px */
+@media (max-width: 767px) {
   html {
-    font-size: 7.58px;
+    font-size: 10.00px;
   }
 }
-@media (max-width: 732px) {
+@media (max-width: 747px) {
   html {
-    font-size: 7.38px;
+    font-size: 9.74px;
   }
 }
-@media (max-width: 712px) {
+@media (max-width: 727px) {
   html {
-    font-size: 7.18px;
+    font-size: 9.48px;
   }
 }
-@media (max-width: 692px) {
+@media (max-width: 707px) {
   html {
-    font-size: 6.98px;
+    font-size: 9.22px;
   }
 }
-@media (max-width: 672px) {
+@media (max-width: 687px) {
   html {
-    font-size: 6.77px;
+    font-size: 8.96px;
   }
 }
-@media (max-width: 652px) {
+@media (max-width: 667px) {
   html {
-    font-size: 6.57px;
+    font-size: 8.70px;
   }
 }
-@media (max-width: 632px) {
+@media (max-width: 647px) {
   html {
-    font-size: 6.37px;
+    font-size: 8.44px;
   }
 }
-@media (max-width: 612px) {
+@media (max-width: 627px) {
   html {
-    font-size: 6.17px;
+    font-size: 8.17px;
   }
 }
-@media (max-width: 592px) {
+@media (max-width: 607px) {
   html {
-    font-size: 5.97px;
+    font-size: 7.91px;
   }
 }
-@media (max-width: 572px) {
+@media (max-width: 587px) {
   html {
-    font-size: 5.77px;
+    font-size: 7.65px;
   }
 }
-@media (max-width: 552px) {
+@media (max-width: 567px) {
   html {
-    font-size: 5.56px;
+    font-size: 7.39px;
   }
 }
-@media (max-width: 532px) {
+@media (max-width: 547px) {
   html {
-    font-size: 5.36px;
+    font-size: 7.13px;
   }
 }
-@media (max-width: 512px) {
+@media (max-width: 527px) {
   html {
-    font-size: 5.16px;
+    font-size: 6.87px;
   }
 }
-@media (max-width: 492px) {
+@media (max-width: 507px) {
   html {
-    font-size: 4.96px;
+    font-size: 6.61px;
   }
 }
-@media (max-width: 472px) {
+@media (max-width: 487px) {
   html {
-    font-size: 4.76px;
+    font-size: 6.35px;
   }
 }
-@media (max-width: 452px) {
+@media (max-width: 467px) {
   html {
-    font-size: 4.56px;
+    font-size: 6.09px;
   }
 }
-@media (max-width: 432px) {
+@media (max-width: 447px) {
   html {
-    font-size: 4.35px;
+    font-size: 5.83px;
   }
 }
-@media (max-width: 412px) {
+@media (max-width: 427px) {
   html {
-    font-size: 4.15px;
+    font-size: 5.57px;
   }
 }
-@media (max-width: 392px) {
+@media (max-width: 407px) {
   html {
-    font-size: 3.95px;
+    font-size: 5.31px;
   }
 }
-@media (max-width: 372px) {
+@media (max-width: 387px) {
   html {
-    font-size: 3.75px;
+    font-size: 5.05px;
   }
 }
-@media (max-width: 352px) {
+@media (max-width: 367px) {
   html {
-    font-size: 3.55px;
+    font-size: 4.78px;
   }
 }
-@media (max-width: 332px) {
+@media (max-width: 347px) {
   html {
-    font-size: 3.35px;
+    font-size: 4.52px;
   }
 }
-@media (max-width: 312px) {
+@media (max-width: 327px) {
   html {
-    font-size: 3.15px;
+    font-size: 4.26px;
   }
 }

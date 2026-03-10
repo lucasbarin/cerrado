@@ -5,7 +5,7 @@
   /* Cores do projeto */
   --branco: #ffffff;
   --verde: #00bb7e;
-  --verde-escuro: #3b7065;
+  --verde-escuro: #006d60;
 
   /* Fonte do projeto */
   --font-principal: 'Raptor Text Premium', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -17,7 +17,6 @@
 html {
   font-size: 62.5%;
   /* 1rem = 10px (base) */
-  scroll-behavior: smooth;
 }
 
 body {
@@ -25,6 +24,43 @@ body {
   color: var(--branco);
   background-color: var(--verde);
   overflow-x: hidden;
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+a {
+  color: var(--branco);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  width: 0;
+  height: 0.2rem;
+  background-color: var(--branco);
+  transition: width 0.3s ease;
+}
+
+a:hover::after,
+a:focus::after {
+  width: 100%;
+}
+
+/* Links do menu não devem ter este efeito (têm o próprio) */
+.nav-link::after {
+  bottom: -0.9rem;
+}
+
+/* Links com imagens (rolar, logos) não devem ter underline */
+a:has(img)::after {
+  display: none;
 }
 
 /* ========================================
@@ -141,6 +177,25 @@ body {
   }
 }
 
+/* Animação de pulso para botão play */
+@keyframes play-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  4% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  8% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  12% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  16%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 #inicio {
   max-width: 255rem;
   /* 2550px */
@@ -218,6 +273,8 @@ body {
   position: relative;
   display: inline-block;
   margin: 0;
+  /* Glifo alternativo para 'r' minúsculo */
+  font-feature-settings: 'ss03' 1;
 }
 
 .navbar-nav .nav-link::after {
@@ -374,6 +431,8 @@ h6,
   /* 29px */
   font-weight: 600;
   /* semibold */
+  /* Glifo alternativo para 'r' minúsculo */
+  font-feature-settings: 'ss03' 1;
 }
 
 /* Corpo - 28px/33px - medium */
@@ -386,7 +445,7 @@ p,
   /* 33px */
   font-weight: 500;
   /* medium */
-  margin-bottom: 1.6rem;
+
 }
 
 /* Lista de Textos Box */
@@ -403,20 +462,20 @@ p,
 /* Textos Box - 25px/29px - medium */
 .textos-box {
   font-family: var(--font-principal);
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   /* 25px */
-  line-height: 2.9rem;
+  line-height: 2.8rem;
   /* 29px */
   font-weight: 500;
   /* medium */
   background-color: var(--verde-escuro);
   padding: 2rem; /* 20px */
-  transition: background-color 0.3s ease;
+  transition: filter 0.3s ease;
   cursor: pointer;
 }
 
 .textos-box:hover {
-  background-color: #457766;
+  filter: brightness(1.15);
 }
 
 /* Título Footer - 47px/47px - semibold */
@@ -442,14 +501,36 @@ p,
   /* medium */
 }
 
+/* ========================================
+   ALTURA MÍNIMA SESSÕES
+   ======================================== */
+/* Classe auxiliar para sessões com altura mínima 100vh
+   
+   COMO DESATIVAR:
+   1. Comente ou delete o bloco .min-vh-section abaixo
+   2. Remova a classe "min-vh-section" das <section> no HTML
+   
+   Para desativar apenas em uma sessão específica,
+   remova apenas a classe "min-vh-section" daquela <section>
+*/
+.min-vh-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.min-vh-section .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .spacer-sessao {
   padding-top: 17rem;
   /* 170px */
-  ;
-
   padding-bottom: 17rem;
   /* 170px */
-  ;
 }
 
 .texto-jornada {
@@ -461,9 +542,198 @@ p,
   margin-top: 0;
 }
 
+#sessao-proposito .container {
+  background-image: url('../images/2x/bg-proposito@2x.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+}
+#sessao-proposito h2{
+  margin-top: 21rem;
+  margin-bottom: 19rem;
+}
+
+#sessao-principios {
+  background-color: var(--verde-escuro);
+}
+
+#sessao-principios h3 {
+  margin-bottom: 17rem;
+}
+
+#cards-proposito {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+}
+
+#cards-proposito > [class*='col'] {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.card-proposito {
+  background-color: var(--verde);
+  padding: 5.5rem 4rem 8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: filter 0.3s ease;
+}
+
+.card-proposito:hover {
+  filter: brightness(1.15);
+}
+
+.card-proposito h5 {
+  margin-bottom: 9rem;
+  margin-top: 0;
+}
+
+.card-proposito .textos-box {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.card-proposito .textos-box:hover {
+  background-color: transparent;
+}
+
+/* ========================================
+   DENOMINAÇÃO DE ORIGEM
+   ======================================== */
+#sessao-denominacao-origem .container {
+  background-image: url('../images/2x/bg-do@2x.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+}
+
+#sessao-denominacao-origem h3 {
+  margin-top: 17rem;
+  margin-bottom: 13rem;
+}
+
+#sessao-denominacao-origem .textos-box {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+#sessao-denominacao-origem .textos-box:hover {
+  background-color: transparent;
+  filter: none;
+  cursor: default;
+}
+
+#mini-cards-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 13rem;
+  margin-bottom: 2rem;
+}
+
+#mini-cards-info > [class*='col'] {
+  display: flex;
+  flex: 0 0 calc(25% - 1.5rem); /* 4 por linha: 25% - gap proporcional */
+  max-width: calc(25% - 1.5rem);
+}
+
+.mini-card-info {
+  background-color: var(--verde-escuro);
+  padding: 4.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: filter 0.3s ease;
+}
+
+.mini-card-info:hover {
+  filter: brightness(1.15);
+}
+
+.mini-card-info h4 {
+  margin-bottom: 0rem;
+  margin-top: 0;
+}
+
+.mini-card-info .textos-box {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.mini-card-info .textos-box:hover {
+  background-color: transparent;
+  filter: none;
+}
+
+.box-verde-info {
+  background-color: var(--verde-escuro);
+  padding: 4.5rem;
+  transition: filter 0.3s ease;
+}
+
+.box-verde-info:hover {
+  filter: brightness(1.15);
+}
+
+.box-verde-info .corpo {
+  line-height: 5.1rem;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   REBRANDING
+   ======================================== */
+#sessao-rebranding {
+  background-color: var(--verde-escuro);
+}
+
+#sessao-rebranding h5 {
+  margin-top: 1.2rem;
+}
+
+#sessao-rebranding .textos-box {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+#sessao-rebranding .textos-box:hover {
+  background-color: transparent;
+  filter: none;
+  cursor: default;
+}
+
+.rebranding-image-container {
+  margin-top: 15rem;
+  padding: 0;
+  max-width: 192rem; /* 1920px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rebranding-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ========================================
    VÍDEO
    ======================================== */
+.video-section .container .row {
+  padding-top: 5rem; /* 50px */
+}
+
 .video-container {
   position: relative;
   width: 100%;
@@ -489,13 +759,15 @@ p,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   cursor: pointer;
   z-index: 3;
   pointer-events: auto;
+  animation: play-pulse 5s ease-in-out infinite;
 }
 
 .video-container:hover .bt-play {
+  animation: none;
   transform: translate(-50%, -50%) scale(1.15);
   opacity: 0.9;
 }
@@ -512,6 +784,148 @@ p,
 }
 
 /* ========================================
+   FAQ - BACKGROUND FINAL
+   ======================================== */
+#bg-final {
+  max-width: 192rem; /* 1920px */
+  margin: 0 auto;
+  background-image: url('../images/2x/bg-faq@2x.png');
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+
+/* ========================================
+   FAQ - ACCORDION
+   ======================================== */
+.faq-accordion {
+  width: 100%;
+}
+
+.faq-item {
+  border-top: 0.2rem solid var(--branco);
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 4.4rem;
+  padding-bottom: 5.9rem;
+  cursor: pointer;
+  gap: 3rem;
+}
+
+.faq-item.active .faq-question {
+  padding-bottom: 3rem;
+}
+
+.faq-question h5 {
+  margin: 0;
+  flex: 1;
+}
+
+.faq-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.faq-icon {
+  position: relative;
+  display: block;
+  width: 4.4rem;
+  height: 4.4rem;
+}
+
+.faq-line {
+  position: absolute;
+  background: var(--branco);
+  width: 4.4rem;
+  height: 0.4rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.faq-line-vertical {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item.active .faq-line-vertical {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: max-height 0.5s ease, opacity 0.4s ease, padding-bottom 0.5s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 50rem;
+  opacity: 1;
+  padding-bottom: 5.9rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  max-width: 95rem;
+}
+
+#sessao-download h3{
+  margin-top: -2.5rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+#footer {
+  padding-bottom: 7rem; /* 70px da base */
+}
+
+.bt-voltar {
+  width: 15.1rem; /* 151px */
+  height: 3.5rem; /* 35px */
+  display: inline-block;
+  animation: scroll-hint 5s ease-in-out infinite;
+}
+
+.logotipo-footer {
+  width: 48.4rem; /* 484px */
+  height: 24.5rem; /* 245px */
+}
+
+.headline-footer {
+  width: 28.7rem; /* 287px */
+  height: 12.9rem; /* 129px */
+}
+
+.footer-logos {
+  margin-top: 14.3rem; /* 143px do voltar */
+}
+
+.footer-bottom {
+  margin-top: 14.3rem; /* 143px do headline */
+}
+
+.redes-sociais {
+  display: flex;
+  gap: 3.2rem; /* 32px entre os ícones */
+  align-items: center;
+}
+
+.copy {
+  margin-bottom: 0;
+}
+
+/* ========================================
    MEDIA QUERIES - Breakpoints
    ======================================== */
 
@@ -519,7 +933,603 @@ p,
 @media (max-width: 1199.98px) {}
 
 /* Medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {}
+@media (max-width: 991.98px) {
+  /* ========================================
+     CONTAINER MOBILE
+     ======================================== */
+  .container {
+    padding-left: 5rem; /* 50px */
+    padding-right: 5rem; /* 50px */
+  }
+
+  /* ========================================
+     BANNER MOBILE
+     ======================================== */
+  #inicio {
+    background-image: url('../images/2x/bg-banner-mobile.jpg');
+    background-size: cover;
+    background-position: center top;
+  }
+
+  #inicio::before {
+    background-image: url('../images/2x/grafismo-banner-multiply-mobile.png');
+    background-size: contain;
+    background-position: bottom right;
+    /* Compensa margem da rotação já que está apoiado embaixo e à direita */
+    margin-bottom: -2rem;
+    margin-right: -2rem;
+  }
+
+  /* ========================================
+     NAVBAR MOBILE
+     ======================================== */
+  .navbar {
+    padding: 11.7rem 0 0 0; /* 117px do topo */
+    position: relative; /* Para posicionar o botão menu */
+  }
+
+  .logotipo {
+    width: 45.3rem; /* 453px */
+    height: 22.9rem; /* 229px */
+  }
+
+  /* Botão Menu - Círculo branco preenchido por padrão */
+  .navbar-toggler {
+    width: 7.1rem; /* 71px */
+    height: 7.1rem; /* 71px */
+    border-radius: 50%;
+    background-color: var(--branco);
+    border: 0.2rem solid var(--branco);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, border-width 0.3s ease, border-radius 0.3s ease;
+    position: absolute;
+    top: 22.9rem; /* 229px do topo da navbar */
+    right: 5rem; /* 50px da direita do container */
+    outline: none;
+    box-shadow: none;
+    z-index: 1060; /* Acima do menu */
+  }
+
+  /* Remove foco padrão em todos os estados */
+  .navbar-toggler:focus,
+  .navbar-toggler:active,
+  .navbar-toggler:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Hover no estado padrão (fechado) */
+  .navbar-toggler:hover {
+    background-color: transparent;
+    border-width: 0.4rem; /* 4px */
+  }
+
+
+
+  /* Estado do menu aberto - sem círculo - usando [aria-expanded="true"] */
+  .navbar-toggler[aria-expanded="true"] {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 0;
+    position: fixed; /* Fixed quando menu aberto */
+    top: 22.9rem; /* Mantém mesma distância do topo */
+    right: 5rem; /* Mantém mesma distância da direita */
+  }
+
+  /* Desativa hover quando menu aberto */
+  .navbar-toggler[aria-expanded="true"]:hover {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0.2rem;
+  }
+
+  /* Oculta o ícone hambúrguer padrão do Bootstrap */
+  .navbar-toggler-icon {
+    display: none;
+  }
+
+  /* X - SOLUÇÃO DEFINITIVA: oculto com clip-path por padrão */
+  .navbar-toggler::before,
+  .navbar-toggler::after {
+    content: '';
+    position: absolute;
+    width: 5rem; /* 50px */
+    height: 0.4rem; /* 4px */
+    background-color: var(--branco);
+    top: 50%;
+    left: 50%;
+    margin-left: -2.5rem; /* Centraliza */
+    margin-top: -0.2rem; /* Centraliza */
+    clip-path: inset(0 100% 0 0); /* OCULTO por padrão */
+    transition: clip-path 0.3s ease, transform 0.3s ease;
+  }
+
+  /* X visível quando menu aberto - usando [aria-expanded="true"] */
+  .navbar-toggler[aria-expanded="true"]::before {
+    clip-path: inset(0 0 0 0); /* VISÍVEL */
+    transform: rotate(45deg);
+  }
+
+  .navbar-toggler[aria-expanded="true"]::after {
+    clip-path: inset(0 0 0 0); /* VISÍVEL */
+    transform: rotate(-45deg);
+  }
+
+  /* ========================================
+     MENU MOBILE - NAVBAR COLLAPSE
+     ======================================== */
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--verde-escuro);
+    z-index: 1050;
+    margin-top: 0;
+    padding: 0 5rem; /* Alinhado com container */
+    padding-bottom: 22rem; /* 220px do limite inferior */
+    display: flex !important; /* Força display flex sempre */
+    flex-direction: column;
+    justify-content: flex-end; /* Conteúdo embaixo */
+    align-items: flex-start; /* Alinhado à esquerda */
+    opacity: 0;
+    pointer-events: none; /* Desativa interação quando fechado */
+    transition: opacity 0.3s ease !important; /* Apenas fade */
+  }
+
+  /* Remove animação padrão do Bootstrap collapse */
+  .navbar-collapse.collapsing {
+    transition: none !important;
+    height: auto !important;
+    opacity: 0;
+  }
+
+  /* Menu visível */
+  .navbar-collapse.show {
+    opacity: 1;
+    pointer-events: auto; /* Ativa interação quando aberto */
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8.0rem; /* 80px entre os botões */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 7.1rem; /* 71px */
+    line-height: 7.1rem;
+  }
+
+  .navbar-nav .nav-link::after {
+    height: 0.3rem; /* 3px no mobile */
+  }
+
+  /* ========================================
+     BANNER CONTENT MOBILE
+     ======================================== */
+  .banner-content {
+    padding-bottom: 16.3rem; /* 163px do limite inferior */
+    z-index: 1; /* Abaixo do menu e botão */
+  }
+
+  /* SOLUÇÃO DEFINITIVA: Quando menu aberto, banner-content fica ainda mais abaixo */
+  body:has(.navbar-toggler[aria-expanded="true"]) .banner-content {
+    z-index: -1;
+  }
+
+  .headline {
+    width: 47.9rem; /* 479px */
+    height: 24.9rem; /* 249px */
+    margin-bottom: 21.9rem; /* 219px acima do rolar */
+    margin-left: 0;
+  }
+
+  .rolar {
+    width: 19.4rem; /* 194px */
+    height: 5.8rem; /* 58px */
+  }
+
+  /* Alinhamento à esquerda */
+  .banner-content .text-end {
+    text-align: left !important;
+  }
+
+  /* ========================================
+     CARDS E OUTROS AJUSTES
+     ======================================== */
+  .spacer-sessao {
+    padding-top: 17rem; /* 170px */
+    padding-bottom: 17rem; /* 170px */
+  }
+
+  #cards-proposito {
+    gap: 0.1rem;
+  }
+  
+  #cards-proposito > [class*='col'] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* ========================================
+     TIPOGRAFIA MOBILE
+     ======================================== */
+  
+  /* h2 - Outro Título Mobile */
+  h2,
+  .outro-titulo {
+    font-size: 5.9rem; /* 59px */
+    line-height: 7.1rem; /* 71px */
+  }
+
+  /* h3 - Título Sessão Mobile */
+  h3,
+  .titulo-sessao {
+    font-size: 6.0rem; /* 60px */
+    line-height: 7.2rem; /* 72px */
+  }
+
+  /* h4 - Título Card Mobile */
+  h4,
+  .titulo-card {
+    font-size: 5.0rem; /* 50px */
+    line-height: 6.0rem; /* 60px */
+  }
+
+  /* h5 - Título Mobile */
+  h5,
+  .titulo {
+    font-size: 4.9rem; /* 49px */
+    line-height: 5.9rem; /* 59px */
+  }
+
+  /* Corpo Mobile */
+  p,
+  .corpo {
+    font-size: 3.8rem; /* 38px */
+    line-height: 4.5rem; /* 45px */
+  }
+
+  /* Textos Box Mobile */
+  .textos-box {
+    font-size: 3.0rem; /* 30px */
+    line-height: 3.6rem; /* 36px */
+  }
+
+  /* ========================================
+     TIPOGRAFIA ESPECÍFICA POR SEÇÃO - MOBILE
+     ======================================== */
+  
+  /* Card Propósito - Textos Box */
+  .card-proposito .textos-box {
+    font-size: 3.8rem; /* 38px */
+    line-height: 4.5rem; /* 45px */
+  }
+
+  /* Mini Card Info - Textos Box */
+  .mini-card-info .textos-box {
+    font-size: 2.5rem; /* 25px */
+    line-height: 3.0rem; /* 30px */
+  }
+
+  /* Box Verde Info - Corpo */
+  .box-verde-info .corpo {
+    font-size: 3.0rem; /* 30px */
+    line-height: 4.4rem; /* 44px */
+  }
+
+  /* FAQ - h2 específico */
+  #bg-final h2 {
+    font-size: 4.3rem; /* 43px */
+    line-height: 5.2rem; /* 52px */
+  }
+
+  /* FAQ - Corpo/Parágrafo específico */
+  #bg-final p,
+  #bg-final .corpo {
+    font-size: 4.5rem; /* 45px */
+    line-height: 4.3rem; /* 43px */
+  }
+
+  /* Downloads - Parágrafo específico */
+  #sessao-download p {
+    font-size: 4.3rem; /* 43px */
+    line-height: 4.3rem; /* 43px */
+  }
+
+  /* Copy - Copyright Mobile */
+  .copy {
+    font-size: 2.4rem !important; /* 24px */
+    line-height: 2.9rem !important; /* 29px */
+    text-align: center;
+  }
+
+  /* ========================================
+     ELEMENTOS - TAMANHOS MOBILE
+     ======================================== */
+  
+  /* Logo D.O. Mobile */
+  .logo-do {
+    width: 29.1rem; /* 291px */
+    height: 40rem; /* 400px */
+  }
+
+  /* Mapa Mobile */
+  .mapa {
+    width: 32rem; /* 320px */
+    height: 27.2rem; /* 272px */
+  }
+
+  /* Logotipo Footer Mobile */
+  .logotipo-footer {
+    width: 45.7rem; /* 457px */
+    height: 23rem; /* 230px */
+  }
+
+  /* Headline Footer Mobile */
+  .headline-footer {
+    width: 22.6rem; /* 226px */
+    height: 11.1rem; /* 111px */
+  }
+
+  /* Ícones Redes Sociais Mobile */
+  .icone-social {
+    width: 6.8rem; /* 68px */
+    height: 6.8rem; /* 68px */
+  }
+
+  /* Botão Voltar Mobile */
+  .bt-voltar {
+    width: 22.2rem; /* 222px */
+    height: 6.0rem; /* 60px */
+  }
+
+  /* ========================================
+     SEÇÕES ESPECÍFICAS - MOBILE
+     ======================================== */
+  
+  /* A JORNADA - Espaçamentos Mobile */
+  .texto-jornada {
+    padding-top: 12rem;
+    /* Distância do h3 até o primeiro h5 */
+  }
+
+  .texto-jornada h5 {
+    margin-top: 14rem;
+    margin-bottom: 8rem;
+  }
+
+  /* Mantém o primeiro h5 sem margin-top */
+  .texto-jornada > span h5:first-of-type {
+    margin-top: 0;
+  }
+
+  /* Lista de textos box - espaçamento e largura 100% */
+  .lista-textos-box {
+    margin-top: 12rem;
+    /* Distância do último p até a lista */
+    margin-left: -5rem;
+    /* Compensa o padding-left do container em mobile */
+    margin-right: -5rem;
+    /* Compensa o padding-right do container em mobile */
+    width: calc(100% + 10rem);
+    /* Ocupa 100% da largura da tela */
+  }
+
+  /* Ajusta padding interno para alinhar texto com demais elementos */
+  .textos-box {
+    padding: 2rem 5rem;
+    /* 2rem vertical, 5rem horizontal (igual ao padding do container) */
+  }
+
+  /* Vídeo - ajuste para totalizar 21rem de espaçamento da lista */
+  .video-section .container .row {
+    padding-top: 4rem;
+    /* 17rem (padding-bottom da seção anterior) + 4rem = 21rem total */
+    padding-bottom: 0;
+    /* Remove qualquer padding-bottom para não somar com a próxima seção */
+  }
+
+  /* O PROPÓSITO - Espaçamentos Mobile */
+  #sessao-proposito .spacer-sessao {
+    padding-top: 25rem !important;
+    /* Da borda inferior do vídeo até o h3 = 25rem TOTAL (sem soma) */
+    padding-bottom: 18rem !important;
+    /* Do final do bloco de texto até o limite da sessão = 18rem */
+  }
+
+  #sessao-proposito h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #sessao-proposito h2 {
+    margin-top: 15rem;
+    /* Do h3 até h2 */
+    margin-bottom: 11rem;
+    /* Do h2 até o texto p */
+  }
+
+  #sessao-proposito p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* TRÊS PRINCÍPIOS - Espaçamentos Mobile */
+  #sessao-principios .spacer-sessao {
+    padding-top: 16rem !important;
+    /* Da borda da sessão até o h3 */
+    padding-bottom: 14rem !important;
+    /* Da borda inferior do último card até o fim da sessão */
+  }
+
+  #sessao-principios h3 {
+    margin-top: 0;
+    margin-bottom: 15rem;
+    /* Do h3 até o primeiro card */
+  }
+
+  #cards-proposito {
+    gap: 6.5rem;
+    /* Espaço vertical entre cards */
+  }
+
+  .card-proposito {
+    padding: 6rem 6rem 18rem 6rem;
+    /* top: 6rem, horizontal: 6rem, bottom: 18rem */
+  }
+
+  /* DENOMINAÇÃO DE ORIGEM - Espaçamentos Mobile */
+  #sessao-denominacao-origem .spacer-sessao {
+    padding-top: 20rem !important;
+    /* Da borda da sessão até o logo D.O. */
+    padding-bottom: 13rem !important;
+    /* Do box-verde-info até fim da sessão */
+  }
+
+  #sessao-denominacao-origem h3 {
+    margin-top: 16rem;
+    /* Do logo D.O. até h3 */
+    margin-bottom: 13rem;
+    /* Do h3 até bloco de texto */
+  }
+
+  #sessao-denominacao-origem .textos-box {
+    margin-bottom: 0;
+  }
+
+  #mini-cards-info {
+    margin-top: 12rem;
+    /* Do bloco de texto até mini-cards */
+    margin-bottom: 2rem;
+    /* Dos mini-cards até box-verde-info */
+    gap: 2rem;
+    /* Espaço horizontal e vertical entre mini-cards */
+  }
+
+  #mini-cards-info > [class*='col'] {
+    flex: 0 0 calc(50% - 1rem); /* 2 por linha: 50% - metade do gap */
+    max-width: calc(50% - 1rem);
+  }
+
+  /* Denominação de Origem - Alinhamento logo e mapa */
+  #sessao-denominacao-origem .row:first-child {
+    align-items: flex-end;
+  }
+
+  /* REBRANDING - Espaçamentos Mobile */
+  #sessao-rebranding .spacer-sessao {
+    padding-top: 17rem !important;
+    /* Início da sessão até h4 */
+    padding-bottom: 0 !important;
+    /* Remove padding-bottom (espaçamento controlado pela imagem) */
+  }
+
+  #sessao-rebranding h4 {
+    margin-top: 0;
+    margin-bottom: 15rem;
+    /* Do h4 até h5 */
+  }
+
+  #sessao-rebranding h5 {
+    margin-top: 0;
+    margin-bottom: 12rem;
+    /* Do h5 até blocos de texto */
+  }
+
+  #sessao-rebranding .textos-box {
+    margin-bottom: 0;
+    font-size: 3.8rem;
+    line-height: 4.5rem;
+  }
+
+  .rebranding-image-container {
+    margin-top: 13rem;
+    /* Do fim dos blocos de texto até a imagem (final da sessão) */
+  }
+
+  /* FAQ - Espaçamentos Mobile */
+  #sessao-faq .spacer-sessao {
+    padding-top: 17rem !important;
+    /* Início da sessão até h3 */
+  }
+
+  #sessao-faq h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .faq-accordion {
+    margin-top: 17rem;
+    /* Do h3 até primeiro accordion */
+  }
+
+  #sessao-faq .faq-answer .corpo,
+  #sessao-faq .faq-answer p {
+    font-size: 3.5rem !important;
+    line-height: 4.2rem !important;
+  }
+
+  /* DOWNLOADS - Espaçamentos Mobile */
+  #sessao-download h3 {
+    margin-top: 0;
+    margin-bottom: 15rem;
+    /* Do h3 até primeiro botão */
+  }
+
+  #sessao-download .row > [class*='col']:not(:first-child) {
+    margin-bottom: 6rem;
+    /* Espaço vertical entre os botões */
+  }
+
+  #sessao-download .row > [class*='col']:last-of-type {
+    margin-bottom: 0;
+  }
+
+  #sessao-download p {
+    margin-bottom: 0;
+  }
+
+  /* Remove padding-bottom do sessao-download para não somar com padding-top do footer */
+  #sessao-download.spacer-sessao {
+    padding-bottom: 0 !important;
+  }
+
+  #footer {
+    padding-top: 20rem !important;
+    /* Do último botão até o voltar = 20rem TOTAL (sem soma) */
+    padding-bottom: 6rem;
+    /* Do copyright até fim da página */
+  }
+
+  /* Footer - Espaçamentos Mobile */
+  #footer .d-block.d-lg-none.text-end {
+    margin-top: 22rem;
+    /* Do voltar até redes sociais */
+  }
+
+  #footer .footer-logos {
+    margin-top: 10rem !important;
+    /* De redes sociais até logotipo footer */
+  }
+
+  #footer .footer-bottom {
+    margin-top: 11rem !important;
+    /* Do logotipo até copyright */
+  }
+
+  /* Footer - Redes Sociais alinhadas à direita no mobile */
+  .redes-sociais {
+    justify-content: flex-end;
+  }
+
+  
+}
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {}

@@ -1,4 +1,43 @@
 
+// Inicializa Locomotive Scroll para smooth scroll elegante
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('body'),
+    smooth: true,
+    multiplier: 0.8,
+    lerp: 0.08,
+    smartphone: {
+        smooth: false
+    },
+    tablet: {
+        smooth: false
+    }
+});
+
+// Ajuste automático de sessão quando o scroll parar
+let scrollTimeout;
+scroll.on('scroll', (args) => {
+    clearTimeout(scrollTimeout);
+    
+    scrollTimeout = setTimeout(() => {
+        // Quando o scroll parar, verifica se há uma âncora próxima do topo
+        const anchors = document.querySelectorAll('span[id]');
+        const threshold = 150; // Distância em pixels para ativar o ajuste
+        
+        anchors.forEach(anchor => {
+            const rect = anchor.getBoundingClientRect();
+            const distanceFromTop = rect.top;
+            
+            // Se o anchor está próximo do topo (positivo ou negativo)
+            if (Math.abs(distanceFromTop) <= threshold && Math.abs(distanceFromTop) > 5) {
+                scroll.scrollTo(anchor, {
+                    offset: 0,
+                    duration: 600,
+                    easing: [0.25, 0.00, 0.35, 1.00]
+                });
+            }
+        });
+    }, 150); // Aguarda 150ms após o último evento de scroll
+});
 
 /* trigger when page is ready */
 $(document).ready(function (){
@@ -31,43 +70,61 @@ $(document).ready(function (){
             video.append(source);
             container.append(video);
             
-            // Remove o cursor pointer
-            container.css('cursor', 'default');
+            // Remove o cursor pointer e a área clicável
+            container.css({
+                'cursor': 'default',
+                'pointer-events': 'none'
+            });
+            
+            // Remove o evento de click para evitar reiniciar o vídeo
+            container.off('click');
+            
+            // Atualiza o Locomotive Scroll
+            setTimeout(() => scroll.update(), 350);
         });
     });
 
-    // Smooth scroll elegante com easing customizado
+    // Smooth scroll para âncoras usando Locomotive Scroll
     $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
         
         const target = $(this.hash);
         if (target.length) {
-            const targetPosition = target.offset().top;
-            const startPosition = window.pageYOffset;
-            const distance = targetPosition - startPosition;
-            const duration = 800; // 0.8 segundo
-            let start = null;
+            // Fecha o menu mobile se estiver aberto
+            const navbarCollapse = $('.navbar-collapse');
+            if (navbarCollapse.hasClass('show')) {
+                navbarCollapse.collapse('hide');
+            }
             
-            // Easing function: easeOutQuint (início instantâneo, desacelera apenas no final)
-            const easeOutQuint = (t) => {
-                return 1 - Math.pow(1 - t, 5);
-            };
-            
-            const animation = (currentTime) => {
-                if (start === null) start = currentTime;
-                const timeElapsed = currentTime - start;
-                const progress = Math.min(timeElapsed / duration, 1);
-                const ease = easeOutQuint(progress);
-                
-                window.scrollTo(0, startPosition + (distance * ease));
-                
-                if (timeElapsed < duration) {
-                    requestAnimationFrame(animation);
-                }
-            };
-            
-            requestAnimationFrame(animation);
+            scroll.scrollTo(target[0], {
+                offset: 0,
+                duration: 1000,
+                easing: [0.25, 0.00, 0.35, 1.00]
+            });
         }
+    });
+
+    // FAQ Accordion
+    $('.faq-toggle').on('click', function(e) {
+        e.stopPropagation();
+        const item = $(this).closest('.faq-item');
+        const wasActive = item.hasClass('active');
+        
+        // Fecha todos os itens
+        $('.faq-item').removeClass('active');
+        
+        // Se não estava ativo, ativa este
+        if (!wasActive) {
+            item.addClass('active');
+        }
+        
+        // Atualiza Locomotive Scroll após animação
+        setTimeout(() => scroll.update(), 350);
+    });
+
+    // Também permite clicar na pergunta inteira
+    $('.faq-question').on('click', function() {
+        $(this).find('.faq-toggle').trigger('click');
     });
 
     $("a[rel=external]").click(function(){
