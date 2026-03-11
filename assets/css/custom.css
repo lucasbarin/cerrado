@@ -1299,8 +1299,13 @@ p,
   .navbar {
     padding: 11.7rem 0 0 0;
     /* 117px do topo */
-    position: relative;
-    /* Para posicionar o botão menu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 1070;
+    /* Acima de tudo */
   }
 
   .logotipo {
@@ -1324,14 +1329,14 @@ p,
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease, border-color 0.3s ease, border-width 0.3s ease, border-radius 0.3s ease;
-    position: absolute;
-    top: 22.9rem;
-    /* 229px do topo da navbar */
+    position: fixed;
+    top: 34.6rem;
+    /* 229px + 117px (padding navbar) = 346px do topo da página */
     right: 5rem;
     /* 50px da direita do container */
     outline: none;
     box-shadow: none;
-    z-index: 1060;
+    z-index: 1080;
     /* Acima do menu */
   }
 
@@ -1357,9 +1362,7 @@ p,
     background-color: transparent;
     border-color: transparent;
     border-radius: 0;
-    position: fixed;
-    /* Fixed quando menu aberto */
-    top: 22.9rem;
+    top: 34.6rem;
     /* Mantém mesma distância do topo */
     right: 5rem;
     /* Mantém mesma distância da direita */
