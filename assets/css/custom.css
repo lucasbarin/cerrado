@@ -12,6 +12,183 @@
 }
 
 /* ========================================
+   LOADING OVERLAY
+   ======================================== */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--verde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loading-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-tree-wrap {
+  width: 10rem;
+  height: 12.3rem;
+}
+
+.loading-tree {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tree-part {
+  fill: var(--branco);
+}
+
+/* Máscara do tronco: sobe de baixo para cima */
+.mask-trunk-rect {
+  animation: revealTrunk 5.5s ease-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Máscara dos galhos: abre depois, com sensação lateral */
+.mask-branches-rect {
+  animation: revealBranches 5.5s ease-out infinite;
+  transform-origin: center center;
+}
+
+/* Folhas / frutos */
+.bloom {
+  transform-box: fill-box;
+  transform-origin: center center;
+  opacity: 0;
+  animation: bloomGrow 4.0s ease-in-out infinite;
+}
+
+.b1 { animation-delay: 0s; }
+.b2 { animation-delay: 0.08s; }
+.b3 { animation-delay: 0.16s; }
+.b4 { animation-delay: 0.24s; }
+.b5 { animation-delay: 0.32s; }
+.b6 { animation-delay: 0.40s; }
+.b7 { animation-delay: 0.48s; }
+.b8 { animation-delay: 0.56s; }
+.b9 { animation-delay: 0.64s; }
+
+@keyframes revealTrunk {
+  0% {
+    y: 164.1px;
+    height: 0px;
+  }
+
+  10% {
+    y: 40px;
+    height: 124.1px;
+  }
+
+  78% {
+    y: 40px;
+    height: 124.1px;
+  }
+
+  90.9% {
+    y: 164.1px;
+    height: 0px;
+  }
+
+  100% {
+    y: 164.1px;
+    height: 0px;
+  }
+}
+
+@keyframes revealBranches {
+  0% {
+    x: 66.3px;
+    width: 0px;
+    y: 0px;
+    height: 130px;
+  }
+
+  10% {
+    x: 66.3px;
+    width: 0px;
+    y: 0px;
+    height: 130px;
+  }
+
+  24% {
+    x: 8px;
+    width: 116.6px;
+    y: 0px;
+    height: 130px;
+  }
+
+  74% {
+    x: 8px;
+    width: 116.6px;
+    y: 0px;
+    height: 130px;
+  }
+
+  84% {
+    x: 66.3px;
+    width: 0px;
+    y: 0px;
+    height: 130px;
+  }
+
+  100% {
+    x: 66.3px;
+    width: 0px;
+    y: 0px;
+    height: 130px;
+  }
+}
+
+@keyframes bloomGrow {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  20% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  36.36% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  82% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .loading-tree-wrap {
+    width: 13.2rem !important;
+    height: 16.4rem !important;
+  }
+}
+
+/* ========================================
    BASE - Desktop First (1920px)
    ======================================== */
 html {
@@ -150,6 +327,87 @@ a:has(img)::after {
 /* ========================================
    SEÇÕES
    ======================================== */
+
+/* WELCOME PAGE */
+#welcome {
+  min-height: 100vh;
+  background-color: var(--verde);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+#welcome::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/2x/grafismo-banner-multiply.png');
+  background-size: contain;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+  pointer-events: none;
+  animation: rotacao-suave 8s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.welcome-row {
+  position: relative;
+  z-index: 1;
+  align-items: center;
+}
+
+.welcome-title {
+  font-family: var(--font-principal);
+  font-size: 8.6rem;
+  line-height: 10.4rem;
+  font-weight: 600;
+  color: var(--branco);
+  margin: 0;
+  font-feature-settings: 'ss03' 1;
+}
+
+.welcome-links {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.welcome-link {
+  font-family: var(--font-principal);
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  font-weight: 500;
+  color: var(--branco);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transition: opacity 0.3s ease;
+  font-feature-settings: 'ss03' 1;
+  width: fit-content;
+}
+
+.welcome-link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  width: 0;
+  height: 0.2rem;
+  background-color: var(--branco);
+  transition: width 0.3s ease;
+}
+
+.welcome-link:hover::after,
+.welcome-link:focus::after {
+  width: 100%;
+}
 
 /* Animação suave de rotação para grafismo */
 @keyframes rotacao-suave {
@@ -1535,12 +1793,10 @@ p,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/2x/bg-into-mob.png');
+    background-image: url('../images/2x/bg-intro-solid.png');
     background-size: contain;
     background-position: bottom right;
     background-repeat: no-repeat;
-    mix-blend-mode: multiply;
-    opacity: 0.3;
     pointer-events: none;
     z-index: 0;
     /* Fica atrás do conteúdo */
@@ -1562,6 +1818,56 @@ p,
   #sessao-proposito p {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  /* WELCOME PAGE - Mobile */
+  #welcome {
+    align-items: flex-start;
+  }
+
+  #welcome::before {
+    background-image: url('../images/2x/grafismo-banner-multiply-mobile.png');
+    background-position: bottom right;
+    margin-bottom: -2rem;
+    margin-right: -2rem;
+  }
+
+  .welcome-row {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-bottom: 10rem;
+  }
+
+  .welcome-row > div:first-child {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .welcome-row > div:last-child {
+    flex-shrink: 0;
+  }
+
+  .welcome-title {
+    font-size: 10rem !important;
+    line-height: 12rem !important;
+    text-align: left;
+  }
+
+  .welcome-links {
+    gap: 5rem !important;
+    align-items: left;
+  }
+
+  .welcome-link {
+    font-size: 5rem !important;
+    line-height: 7.4rem !important;
+    text-align: left;
+    width: fit-content !important;
   }
 
   /* TRÊS PRINCÍPIOS - Espaçamentos Mobile */

@@ -2,6 +2,33 @@
 // Ativa scroll suave nativo
 document.documentElement.style.scrollBehavior = 'smooth';
 
+// Loading Screen - Aguarda carregamento completo
+window.addEventListener('load', function() {
+    const loadingOverlay = document.getElementById('loading-overlay');
+    
+    // Aguarda mínimo de 5.5 segundos para exibir pelo menos um loop completo da animação
+    setTimeout(function() {
+        // Remove o loading overlay com fade out
+        loadingOverlay.classList.add('hidden');
+        
+        // Inicializa AOS após remover loading
+        setTimeout(function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: false,
+                mirror: false,
+                offset: 100,
+                anchorPlacement: 'top-bottom',
+                disable: false,
+            });
+            
+            // Força refresh do AOS para capturar elementos já visíveis
+            AOS.refresh();
+        }, 300); // Aguarda transição do loading terminar
+    }, 3500); // Tempo mínimo de loading (5.5 segundos = 1 loop completo da animação)
+});
+
 // Ajuste automático quando o scroll parar próximo de uma seção
 let scrollTimeout;
 window.addEventListener('scroll', function() {
@@ -58,13 +85,10 @@ $(document).ready(function (){
             video.append(source);
             container.append(video);
             
-            // Remove o cursor pointer e a área clicável
-            container.css({
-                'cursor': 'default',
-                'pointer-events': 'none'
-            });
+            // Remove o cursor pointer
+            container.css('cursor', 'default');
             
-            // Remove o evento de click para evitar reiniciar o vídeo
+            // Remove o evento de click do container para evitar reiniciar o vídeo
             container.off('click');
         });
     });
