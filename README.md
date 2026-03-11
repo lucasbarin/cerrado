@@ -31,7 +31,6 @@ Site institucional da **Região do Cerrado Mineiro**, apresentando a história, 
 - **JavaScript ES6+** - Interatividade
 - **jQuery** - Manipulação DOM
 - **Owl Carousel** - Carrosséis responsivos
-- **PHP 7.4+** - Backend e processamento
 
 ---
 
@@ -60,10 +59,6 @@ cerrado/
 │   ├── favicon/                    # Favicons e ícones de app
 │   └── lib/
 │       └── owlcarousel/            # Biblioteca de carrossel
-├── app/
-│   ├── funcoes.php                 # Funções auxiliares PHP
-│   ├── sessao.php                  # Gerenciamento de sessão
-│   └── PHPMailer_v5.1/             # Envio de e-mails
 ├── index.html                      # Página de boas-vindas
 ├── landing.html                    # Landing page principal (imagem banner)
 ├── landing-video.html              # Landing page alternativa (vídeo banner)
@@ -100,9 +95,11 @@ O projeto inclui duas versões do site para apresentação:
 
 ### Pré-requisitos
 
-- Servidor web local (WAMP, XAMPP, LAMP, ou similar)
-- PHP 7.4+ (para funcionalidades backend)
 - Navegador moderno (Chrome, Firefox, Safari, Edge)
+- Servidor web local (opcional, para desenvolvimento):
+  - WAMP, XAMPP, LAMP, Live Server (VS Code), ou similar
+  - Python: `python -m http.server 8000`
+  - Node.js: `npx serve`
 
 ### Instalação
 
