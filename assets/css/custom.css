@@ -139,6 +139,12 @@ a:has(img)::after {
   /* 44px */
   height: 4.4rem;
   /* 44px */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.icone-social:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
 }
 
 /* ========================================
@@ -163,16 +169,23 @@ a:has(img)::after {
   0% {
     transform: translateY(0);
   }
+
   4% {
-    transform: translateY(0.5rem); /* 5px */
+    transform: translateY(0.5rem);
+    /* 5px */
   }
+
   8% {
     transform: translateY(0);
   }
+
   12% {
-    transform: translateY(0.5rem); /* 5px */
+    transform: translateY(0.5rem);
+    /* 5px */
   }
-  16%, 100% {
+
+  16%,
+  100% {
     transform: translateY(0);
   }
 }
@@ -182,16 +195,21 @@ a:has(img)::after {
   0% {
     transform: translate(-50%, -50%) scale(1);
   }
+
   4% {
     transform: translate(-50%, -50%) scale(1.08);
   }
+
   8% {
     transform: translate(-50%, -50%) scale(1);
   }
+
   12% {
     transform: translate(-50%, -50%) scale(1.08);
   }
-  16%, 100% {
+
+  16%,
+  100% {
     transform: translate(-50%, -50%) scale(1);
   }
 }
@@ -363,6 +381,7 @@ h2,
 }
 
 /* Título Sessão - 54px/64px - semibold */
+h1,
 h3,
 .titulo-sessao {
   font-family: var(--font-principal);
@@ -455,7 +474,8 @@ p,
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.1rem; /* 1px de espaçamento entre itens */
+  gap: 0.1rem;
+  /* 1px de espaçamento entre itens */
   margin-top: 8rem;
 }
 
@@ -469,7 +489,8 @@ p,
   font-weight: 500;
   /* medium */
   background-color: var(--verde-escuro);
-  padding: 2rem; /* 20px */
+  padding: 2rem;
+  /* 20px */
   transition: filter 0.3s ease;
   cursor: pointer;
 }
@@ -526,6 +547,22 @@ p,
   justify-content: center;
 }
 
+/* Classe para altura mínima 100vh apenas em DESKTOP (≥993px) */
+@media (min-width: 993px) {
+  .min-vh-desktop {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .min-vh-desktop .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .spacer-sessao {
   padding-top: 17rem;
   /* 170px */
@@ -538,7 +575,7 @@ p,
   /* 40px */
 }
 
-.texto-jornada > span h5:first-of-type {
+.texto-jornada>span h5:first-of-type {
   margin-top: 0;
 }
 
@@ -548,7 +585,8 @@ p,
   background-position: left bottom;
   background-size: contain;
 }
-#sessao-proposito h2{
+
+#sessao-proposito h2 {
   margin-top: 21rem;
   margin-bottom: 19rem;
 }
@@ -557,6 +595,7 @@ p,
   background-color: var(--verde-escuro);
 }
 
+#sessao-principios h1,
 #sessao-principios h3 {
   margin-bottom: 17rem;
 }
@@ -567,7 +606,7 @@ p,
   gap: 2.2rem;
 }
 
-#cards-proposito > [class*='col'] {
+#cards-proposito>[class*='col'] {
   display: flex;
   flex: 1;
   min-width: 0;
@@ -613,6 +652,7 @@ p,
   background-size: contain;
 }
 
+#sessao-denominacao-origem h1,
 #sessao-denominacao-origem h3 {
   margin-top: 17rem;
   margin-bottom: 13rem;
@@ -638,9 +678,10 @@ p,
   margin-bottom: 2rem;
 }
 
-#mini-cards-info > [class*='col'] {
+#mini-cards-info>[class*='col'] {
   display: flex;
-  flex: 0 0 calc(25% - 1.5rem); /* 4 por linha: 25% - gap proporcional */
+  flex: 0 0 calc(25% - 1.5rem);
+  /* 4 por linha: 25% - gap proporcional */
   max-width: calc(25% - 1.5rem);
 }
 
@@ -687,7 +728,16 @@ p,
 
 .box-verde-info .corpo {
   line-height: 5.1rem;
+  margin-bottom: 1.5rem;
+  padding-left: 3rem;
+  /* Cria espaço para o marcador */
+  text-indent: -2rem;
+  /* Puxa a primeira linha com o "-" de volta, criando efeito de hanging indent */
+}
+
+.box-verde-info .corpo:last-child {
   margin-bottom: 0;
+  /* Remove margem do último item */
 }
 
 /* ========================================
@@ -716,7 +766,8 @@ p,
 .rebranding-image-container {
   margin-top: 15rem;
   padding: 0;
-  max-width: 192rem; /* 1920px */
+  max-width: 192rem;
+  /* 1920px */
   margin-left: auto;
   margin-right: auto;
 }
@@ -731,13 +782,15 @@ p,
    VÍDEO
    ======================================== */
 .video-section .container .row {
-  padding-top: 5rem; /* 50px */
+  padding-top: 5rem;
+  /* 50px */
 }
 
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio (9/16 = 0.5625) */
+  padding-bottom: 56.25%;
+  /* 16:9 ratio (9/16 = 0.5625) */
   cursor: pointer;
   overflow: hidden;
   background-color: var(--verde-escuro);
@@ -787,7 +840,8 @@ p,
    FAQ - BACKGROUND FINAL
    ======================================== */
 #bg-final {
-  max-width: 192rem; /* 1920px */
+  max-width: 192rem;
+  /* 1920px */
   margin: 0 auto;
   background-image: url('../images/2x/bg-faq@2x.png');
   background-size: contain;
@@ -879,45 +933,63 @@ p,
   max-width: 95rem;
 }
 
-#sessao-download h3{
+#sessao-download h1,
+#sessao-download h3 {
   margin-top: -2.5rem;
+}
+
+/* Remove padding-bottom do sessao-download para não somar com padding-top do footer */
+#sessao-download.spacer-sessao {
+  padding-bottom: 0;
 }
 
 /* ========================================
    FOOTER
    ======================================== */
 #footer {
-  padding-bottom: 7rem; /* 70px da base */
+  padding-top: 14rem;
+  /* Espaçamento do início do footer */
+  padding-bottom: 7rem;
+  /* 70px da base */
 }
 
 .bt-voltar {
-  width: 15.1rem; /* 151px */
-  height: 3.5rem; /* 35px */
+  width: 15.1rem;
+  /* 151px */
+  height: 3.5rem;
+  /* 35px */
   display: inline-block;
   animation: scroll-hint 5s ease-in-out infinite;
 }
 
 .logotipo-footer {
-  width: 48.4rem; /* 484px */
-  height: 24.5rem; /* 245px */
+  width: 48.4rem;
+  /* 484px */
+  height: 24.5rem;
+  /* 245px */
 }
 
 .headline-footer {
-  width: 28.7rem; /* 287px */
-  height: 12.9rem; /* 129px */
+  width: 28.7rem;
+  /* 287px */
+  height: 12.9rem;
+  /* 129px */
 }
 
 .footer-logos {
-  margin-top: 14.3rem; /* 143px do voltar */
+  margin-top: 14.3rem;
+  /* 143px do voltar */
 }
 
 .footer-bottom {
-  margin-top: 14.3rem; /* 143px do headline */
+  margin-top: 14.3rem;
+  /* 143px do headline */
 }
 
 .redes-sociais {
   display: flex;
-  gap: 3.2rem; /* 32px entre os ícones */
+  gap: 3.2rem;
+  /* 32px entre os ícones */
   align-items: center;
 }
 
@@ -934,12 +1006,15 @@ p,
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
+
   /* ========================================
      CONTAINER MOBILE
      ======================================== */
   .container {
-    padding-left: 5rem; /* 50px */
-    padding-right: 5rem; /* 50px */
+    padding-left: 5rem;
+    /* 50px */
+    padding-right: 5rem;
+    /* 50px */
   }
 
   /* ========================================
@@ -964,19 +1039,25 @@ p,
      NAVBAR MOBILE
      ======================================== */
   .navbar {
-    padding: 11.7rem 0 0 0; /* 117px do topo */
-    position: relative; /* Para posicionar o botão menu */
+    padding: 11.7rem 0 0 0;
+    /* 117px do topo */
+    position: relative;
+    /* Para posicionar o botão menu */
   }
 
   .logotipo {
-    width: 45.3rem; /* 453px */
-    height: 22.9rem; /* 229px */
+    width: 45.3rem;
+    /* 453px */
+    height: 22.9rem;
+    /* 229px */
   }
 
   /* Botão Menu - Círculo branco preenchido por padrão */
   .navbar-toggler {
-    width: 7.1rem; /* 71px */
-    height: 7.1rem; /* 71px */
+    width: 7.1rem;
+    /* 71px */
+    height: 7.1rem;
+    /* 71px */
     border-radius: 50%;
     background-color: var(--branco);
     border: 0.2rem solid var(--branco);
@@ -986,11 +1067,14 @@ p,
     justify-content: center;
     transition: background-color 0.3s ease, border-color 0.3s ease, border-width 0.3s ease, border-radius 0.3s ease;
     position: absolute;
-    top: 22.9rem; /* 229px do topo da navbar */
-    right: 5rem; /* 50px da direita do container */
+    top: 22.9rem;
+    /* 229px do topo da navbar */
+    right: 5rem;
+    /* 50px da direita do container */
     outline: none;
     box-shadow: none;
-    z-index: 1060; /* Acima do menu */
+    z-index: 1060;
+    /* Acima do menu */
   }
 
   /* Remove foco padrão em todos os estados */
@@ -1004,7 +1088,8 @@ p,
   /* Hover no estado padrão (fechado) */
   .navbar-toggler:hover {
     background-color: transparent;
-    border-width: 0.4rem; /* 4px */
+    border-width: 0.4rem;
+    /* 4px */
   }
 
 
@@ -1014,9 +1099,12 @@ p,
     background-color: transparent;
     border-color: transparent;
     border-radius: 0;
-    position: fixed; /* Fixed quando menu aberto */
-    top: 22.9rem; /* Mantém mesma distância do topo */
-    right: 5rem; /* Mantém mesma distância da direita */
+    position: fixed;
+    /* Fixed quando menu aberto */
+    top: 22.9rem;
+    /* Mantém mesma distância do topo */
+    right: 5rem;
+    /* Mantém mesma distância da direita */
   }
 
   /* Desativa hover quando menu aberto */
@@ -1036,31 +1124,39 @@ p,
   .navbar-toggler::after {
     content: '';
     position: absolute;
-    width: 5rem; /* 50px */
-    height: 0.4rem; /* 4px */
+    width: 6.5rem;
+    /* 65px - 30% maior */
+    height: 0.52rem;
+    /* 5.2px - 30% maior */
     background-color: var(--branco);
     top: 50%;
     left: 50%;
-    margin-left: -2.5rem; /* Centraliza */
-    margin-top: -0.2rem; /* Centraliza */
-    clip-path: inset(0 100% 0 0); /* OCULTO por padrão */
+    margin-left: -3.25rem;
+    /* Centraliza (50% do width) */
+    margin-top: -0.26rem;
+    /* Centraliza (50% do height) */
+    clip-path: inset(0 100% 0 0);
+    /* OCULTO por padrão */
     transition: clip-path 0.3s ease, transform 0.3s ease;
   }
 
   /* X visível quando menu aberto - usando [aria-expanded="true"] */
   .navbar-toggler[aria-expanded="true"]::before {
-    clip-path: inset(0 0 0 0); /* VISÍVEL */
+    clip-path: inset(0 0 0 0);
+    /* VISÍVEL */
     transform: rotate(45deg);
   }
 
   .navbar-toggler[aria-expanded="true"]::after {
-    clip-path: inset(0 0 0 0); /* VISÍVEL */
+    clip-path: inset(0 0 0 0);
+    /* VISÍVEL */
     transform: rotate(-45deg);
   }
 
   /* ========================================
      MENU MOBILE - NAVBAR COLLAPSE
      ======================================== */
+
   .navbar-collapse {
     position: fixed;
     top: 0;
@@ -1070,15 +1166,22 @@ p,
     background-color: var(--verde-escuro);
     z-index: 1050;
     margin-top: 0;
-    padding: 0 5rem; /* Alinhado com container */
-    padding-bottom: 22rem; /* 220px do limite inferior */
-    display: flex !important; /* Força display flex sempre */
+    padding: 0 5rem;
+    /* Alinhado com container */
+    padding-bottom: 35rem;
+    /* 350px do limite inferior */
+    display: flex !important;
+    /* Força display flex sempre */
     flex-direction: column;
-    justify-content: flex-end; /* Conteúdo embaixo */
-    align-items: flex-start; /* Alinhado à esquerda */
+    justify-content: flex-end;
+    /* Conteúdo embaixo */
+    align-items: flex-start;
+    /* Alinhado à esquerda */
     opacity: 0;
-    pointer-events: none; /* Desativa interação quando fechado */
-    transition: opacity 0.3s ease !important; /* Apenas fade */
+    pointer-events: none;
+    /* Desativa interação quando fechado */
+    transition: opacity 0.3s ease !important;
+    /* Apenas fade */
   }
 
   /* Remove animação padrão do Bootstrap collapse */
@@ -1091,30 +1194,36 @@ p,
   /* Menu visível */
   .navbar-collapse.show {
     opacity: 1;
-    pointer-events: auto; /* Ativa interação quando aberto */
+    pointer-events: auto;
+    /* Ativa interação quando aberto */
   }
 
   .navbar-nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8.0rem; /* 80px entre os botões */
+    gap: 8.0rem;
+    /* 80px entre os botões */
   }
 
   .navbar-nav .nav-link {
-    font-size: 7.1rem; /* 71px */
+    font-size: 7.1rem;
+    /* 71px */
     line-height: 7.1rem;
   }
 
   .navbar-nav .nav-link::after {
-    height: 0.3rem; /* 3px no mobile */
+    height: 0.3rem;
+    /* 3px no mobile */
   }
 
   /* ========================================
      BANNER CONTENT MOBILE
      ======================================== */
   .banner-content {
-    padding-bottom: 16.3rem; /* 163px do limite inferior */
-    z-index: 1; /* Abaixo do menu e botão */
+    padding-bottom: 16.3rem;
+    /* 163px do limite inferior */
+    z-index: 1;
+    /* Abaixo do menu e botão */
   }
 
   /* SOLUÇÃO DEFINITIVA: Quando menu aberto, banner-content fica ainda mais abaixo */
@@ -1123,15 +1232,20 @@ p,
   }
 
   .headline {
-    width: 47.9rem; /* 479px */
-    height: 24.9rem; /* 249px */
-    margin-bottom: 21.9rem; /* 219px acima do rolar */
+    width: 47.9rem;
+    /* 479px */
+    height: 24.9rem;
+    /* 249px */
+    margin-bottom: 21.9rem;
+    /* 219px acima do rolar */
     margin-left: 0;
   }
 
   .rolar {
-    width: 19.4rem; /* 194px */
-    height: 5.8rem; /* 58px */
+    width: 19.4rem;
+    /* 194px */
+    height: 5.8rem;
+    /* 58px */
   }
 
   /* Alinhamento à esquerda */
@@ -1143,15 +1257,17 @@ p,
      CARDS E OUTROS AJUSTES
      ======================================== */
   .spacer-sessao {
-    padding-top: 17rem; /* 170px */
-    padding-bottom: 17rem; /* 170px */
+    padding-top: 17rem;
+    /* 170px */
+    padding-bottom: 17rem;
+    /* 170px */
   }
 
   #cards-proposito {
     gap: 0.1rem;
   }
-  
-  #cards-proposito > [class*='col'] {
+
+  #cards-proposito>[class*='col'] {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -1159,140 +1275,186 @@ p,
   /* ========================================
      TIPOGRAFIA MOBILE
      ======================================== */
-  
+
   /* h2 - Outro Título Mobile */
   h2,
   .outro-titulo {
-    font-size: 5.9rem; /* 59px */
-    line-height: 7.1rem; /* 71px */
+    font-size: 5.9rem;
+    /* 59px */
+    line-height: 7.1rem;
+    /* 71px */
   }
 
   /* h3 - Título Sessão Mobile */
   h3,
   .titulo-sessao {
-    font-size: 6.0rem; /* 60px */
-    line-height: 7.2rem; /* 72px */
+    font-size: 6.0rem;
+    /* 60px */
+    line-height: 7.2rem;
+    /* 72px */
   }
 
   /* h4 - Título Card Mobile */
   h4,
   .titulo-card {
-    font-size: 5.0rem; /* 50px */
-    line-height: 6.0rem; /* 60px */
+    font-size: 5.0rem;
+    /* 50px */
+    line-height: 6.0rem;
+    /* 60px */
   }
 
   /* h5 - Título Mobile */
   h5,
   .titulo {
-    font-size: 4.9rem; /* 49px */
-    line-height: 5.9rem; /* 59px */
+    font-size: 4.9rem;
+    /* 49px */
+    line-height: 5.9rem;
+    /* 59px */
   }
 
   /* Corpo Mobile */
   p,
   .corpo {
-    font-size: 3.8rem; /* 38px */
-    line-height: 4.5rem; /* 45px */
+    font-size: 3.8rem;
+    /* 38px */
+    line-height: 4.5rem;
+    /* 45px */
   }
 
   /* Textos Box Mobile */
   .textos-box {
-    font-size: 3.0rem; /* 30px */
-    line-height: 3.6rem; /* 36px */
+    font-size: 3.0rem;
+    /* 30px */
+    line-height: 3.6rem;
+    /* 36px */
   }
 
   /* ========================================
      TIPOGRAFIA ESPECÍFICA POR SEÇÃO - MOBILE
      ======================================== */
-  
+
   /* Card Propósito - Textos Box */
   .card-proposito .textos-box {
-    font-size: 3.8rem; /* 38px */
-    line-height: 4.5rem; /* 45px */
+    font-size: 3.8rem;
+    /* 38px */
+    line-height: 4.5rem;
+    /* 45px */
   }
 
   /* Mini Card Info - Textos Box */
   .mini-card-info .textos-box {
-    font-size: 2.5rem; /* 25px */
-    line-height: 3.0rem; /* 30px */
+    font-size: 2.5rem;
+    /* 25px */
+    line-height: 3.0rem;
+    /* 30px */
   }
 
   /* Box Verde Info - Corpo */
   .box-verde-info .corpo {
-    font-size: 3.0rem; /* 30px */
-    line-height: 4.4rem; /* 44px */
+    font-size: 3.0rem;
+    /* 30px */
+    line-height: 4.4rem;
+    /* 44px */
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   /* FAQ - h2 específico */
   #bg-final h2 {
-    font-size: 4.3rem; /* 43px */
-    line-height: 5.2rem; /* 52px */
+    font-size: 4.3rem;
+    /* 43px */
+    line-height: 5.2rem;
+    /* 52px */
   }
 
   /* FAQ - Corpo/Parágrafo específico */
   #bg-final p,
   #bg-final .corpo {
-    font-size: 4.5rem; /* 45px */
-    line-height: 4.3rem; /* 43px */
+    font-size: 4.5rem;
+    /* 45px */
+    line-height: 4.3rem;
+    /* 43px */
   }
 
   /* Downloads - Parágrafo específico */
   #sessao-download p {
-    font-size: 4.3rem; /* 43px */
-    line-height: 4.3rem; /* 43px */
+    font-size: 4.3rem;
+    /* 43px */
+    line-height: 4.3rem;
+    /* 43px */
   }
 
   /* Copy - Copyright Mobile */
   .copy {
-    font-size: 2.4rem !important; /* 24px */
-    line-height: 2.9rem !important; /* 29px */
+    font-size: 2.4rem !important;
+    /* 24px */
+    line-height: 2.9rem !important;
+    /* 29px */
     text-align: center;
   }
 
   /* ========================================
      ELEMENTOS - TAMANHOS MOBILE
      ======================================== */
-  
+
   /* Logo D.O. Mobile */
   .logo-do {
-    width: 29.1rem; /* 291px */
-    height: 40rem; /* 400px */
+    width: 29.1rem;
+    /* 291px */
+    height: 40rem;
+    /* 400px */
   }
 
   /* Mapa Mobile */
   .mapa {
-    width: 32rem; /* 320px */
-    height: 27.2rem; /* 272px */
+    width: 32rem;
+    /* 320px */
+    height: 27.2rem;
+    /* 272px */
   }
 
   /* Logotipo Footer Mobile */
   .logotipo-footer {
-    width: 45.7rem; /* 457px */
-    height: 23rem; /* 230px */
+    width: 45.7rem;
+    /* 457px */
+    height: 23rem;
+    /* 230px */
   }
 
   /* Headline Footer Mobile */
   .headline-footer {
-    width: 22.6rem; /* 226px */
-    height: 11.1rem; /* 111px */
+    width: 22.6rem;
+    /* 226px */
+    height: 11.1rem;
+    /* 111px */
   }
 
   /* Ícones Redes Sociais Mobile */
   .icone-social {
-    width: 6.8rem; /* 68px */
-    height: 6.8rem; /* 68px */
+    width: 6.8rem;
+    /* 68px */
+    height: 6.8rem;
+    /* 68px */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .icone-social:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
   }
 
   /* Botão Voltar Mobile */
   .bt-voltar {
-    width: 22.2rem; /* 222px */
-    height: 6.0rem; /* 60px */
+    width: 22.2rem;
+    /* 222px */
+    height: 6.0rem;
+    /* 60px */
   }
 
   /* ========================================
      SEÇÕES ESPECÍFICAS - MOBILE
      ======================================== */
-  
+
   /* A JORNADA - Espaçamentos Mobile */
   .texto-jornada {
     padding-top: 12rem;
@@ -1305,7 +1467,7 @@ p,
   }
 
   /* Mantém o primeiro h5 sem margin-top */
-  .texto-jornada > span h5:first-of-type {
+  .texto-jornada>span h5:first-of-type {
     margin-top: 0;
   }
 
@@ -1323,8 +1485,8 @@ p,
 
   /* Ajusta padding interno para alinhar texto com demais elementos */
   .textos-box {
-    padding: 2rem 5rem;
-    /* 2rem vertical, 5rem horizontal (igual ao padding do container) */
+    padding: 3rem 5rem;
+    /* 3rem vertical (+1rem), 5rem horizontal (igual ao padding do container) */
   }
 
   /* Vídeo - ajuste para totalizar 21rem de espaçamento da lista */
@@ -1335,6 +1497,17 @@ p,
     /* Remove qualquer padding-bottom para não somar com a próxima seção */
   }
 
+  /* Vídeo - borda a borda no mobile (remove padding do container) */
+  .video-section.container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .video-section .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   /* O PROPÓSITO - Espaçamentos Mobile */
   #sessao-proposito .spacer-sessao {
     padding-top: 25rem !important;
@@ -1343,6 +1516,37 @@ p,
     /* Do final do bloco de texto até o limite da sessão = 18rem */
   }
 
+  #sessao-proposito .container {
+    background-image: none;
+    /* Remove o background desktop */
+    position: relative;
+  }
+
+  #sessao-proposito .container .row {
+    position: relative;
+    z-index: 1;
+    /* Garante que o conteúdo fique acima do background */
+  }
+
+  #sessao-proposito .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/2x/bg-into-mob.png');
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+    /* Fica atrás do conteúdo */
+  }
+
+  #sessao-proposito h1,
   #sessao-proposito h3 {
     margin-top: 0;
     margin-bottom: 0;
@@ -1368,6 +1572,7 @@ p,
     /* Da borda inferior do último card até o fim da sessão */
   }
 
+  #sessao-principios h1,
   #sessao-principios h3 {
     margin-top: 0;
     margin-bottom: 15rem;
@@ -1392,6 +1597,7 @@ p,
     /* Do box-verde-info até fim da sessão */
   }
 
+  #sessao-denominacao-origem h1,
   #sessao-denominacao-origem h3 {
     margin-top: 16rem;
     /* Do logo D.O. até h3 */
@@ -1401,6 +1607,8 @@ p,
 
   #sessao-denominacao-origem .textos-box {
     margin-bottom: 0;
+    font-size: 3.8rem;
+    line-height: 4.5rem;
   }
 
   #mini-cards-info {
@@ -1412,8 +1620,14 @@ p,
     /* Espaço horizontal e vertical entre mini-cards */
   }
 
-  #mini-cards-info > [class*='col'] {
-    flex: 0 0 calc(50% - 1rem); /* 2 por linha: 50% - metade do gap */
+  #mini-cards-info .textos-box {
+    font-size: 2.5rem;
+    line-height: 3.0rem;
+  }
+
+  #mini-cards-info>[class*='col'] {
+    flex: 0 0 calc(50% - 1rem);
+    /* 2 por linha: 50% - metade do gap */
     max-width: calc(50% - 1rem);
   }
 
@@ -1459,6 +1673,7 @@ p,
     /* Início da sessão até h3 */
   }
 
+  #sessao-faq h1,
   #sessao-faq h3 {
     margin-top: 0;
     margin-bottom: 0;
@@ -1473,21 +1688,23 @@ p,
   #sessao-faq .faq-answer p {
     font-size: 3.5rem !important;
     line-height: 4.2rem !important;
+    max-width: 75rem;
   }
 
   /* DOWNLOADS - Espaçamentos Mobile */
+  #sessao-download h1,
   #sessao-download h3 {
     margin-top: 0;
     margin-bottom: 15rem;
     /* Do h3 até primeiro botão */
   }
 
-  #sessao-download .row > [class*='col']:not(:first-child) {
+  #sessao-download .row>[class*='col']:not(:first-child) {
     margin-bottom: 6rem;
     /* Espaço vertical entre os botões */
   }
 
-  #sessao-download .row > [class*='col']:last-of-type {
+  #sessao-download .row>[class*='col']:last-of-type {
     margin-bottom: 0;
   }
 
@@ -1528,7 +1745,7 @@ p,
     justify-content: flex-end;
   }
 
-  
+
 }
 
 /* Small devices (landscape phones, less than 768px) */

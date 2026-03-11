@@ -1,39 +1,27 @@
 
-// Inicializa Locomotive Scroll para smooth scroll elegante
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('body'),
-    smooth: true,
-    multiplier: 0.8,
-    lerp: 0.08,
-    smartphone: {
-        smooth: false
-    },
-    tablet: {
-        smooth: false
-    }
-});
+// Ativa scroll suave nativo
+document.documentElement.style.scrollBehavior = 'smooth';
 
-// Ajuste automático de sessão quando o scroll parar
+// Ajuste automático quando o scroll parar próximo de uma seção
 let scrollTimeout;
-scroll.on('scroll', (args) => {
+window.addEventListener('scroll', function() {
+    // Limpa o timeout anterior
     clearTimeout(scrollTimeout);
     
-    scrollTimeout = setTimeout(() => {
+    // Define um novo timeout - será executado quando o scroll parar
+    scrollTimeout = setTimeout(function() {
         // Quando o scroll parar, verifica se há uma âncora próxima do topo
         const anchors = document.querySelectorAll('span[id]');
         const threshold = 150; // Distância em pixels para ativar o ajuste
         
-        anchors.forEach(anchor => {
+        anchors.forEach(function(anchor) {
             const rect = anchor.getBoundingClientRect();
             const distanceFromTop = rect.top;
             
             // Se o anchor está próximo do topo (positivo ou negativo)
             if (Math.abs(distanceFromTop) <= threshold && Math.abs(distanceFromTop) > 5) {
-                scroll.scrollTo(anchor, {
-                    offset: 0,
-                    duration: 600,
-                    easing: [0.25, 0.00, 0.35, 1.00]
-                });
+                // Ajusta o scroll para a âncora
+                anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     }, 150); // Aguarda 150ms após o último evento de scroll
@@ -78,13 +66,10 @@ $(document).ready(function (){
             
             // Remove o evento de click para evitar reiniciar o vídeo
             container.off('click');
-            
-            // Atualiza o Locomotive Scroll
-            setTimeout(() => scroll.update(), 350);
         });
     });
 
-    // Smooth scroll para âncoras usando Locomotive Scroll
+    // Smooth scroll para âncoras
     $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
         
@@ -96,11 +81,8 @@ $(document).ready(function (){
                 navbarCollapse.collapse('hide');
             }
             
-            scroll.scrollTo(target[0], {
-                offset: 0,
-                duration: 1000,
-                easing: [0.25, 0.00, 0.35, 1.00]
-            });
+            // Scroll nativo suave
+            target[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 
@@ -117,9 +99,6 @@ $(document).ready(function (){
         if (!wasActive) {
             item.addClass('active');
         }
-        
-        // Atualiza Locomotive Scroll após animação
-        setTimeout(() => scroll.update(), 350);
     });
 
     // Também permite clicar na pergunta inteira
