@@ -65,8 +65,8 @@ cerrado/
 │   ├── sessao.php                  # Gerenciamento de sessão
 │   └── PHPMailer_v5.1/             # Envio de e-mails
 ├── index.html                      # Página de boas-vindas
-├── landing.html                    # Layout com vídeo banner (aprovação)
-├── landing-image.html              # Layout com imagem banner (aprovação)
+├── landing.html                    # Landing page principal (imagem banner)
+├── landing-video.html              # Landing page alternativa (vídeo banner)
 └── README.md                       # Este arquivo
 ```
 
@@ -74,23 +74,25 @@ cerrado/
 
 ## 🎬 Layouts de Aprovação
 
-O projeto inclui duas versões do site para aprovação do cliente:
+O projeto inclui duas versões do site para apresentação:
 
-### 🎥 landing.html - Versão com Vídeo Banner
-- Banner inicial com vídeo em movimento
-- Vídeos otimizados para desktop (desk-720.mp4) e mobile (mobile-720.mp4)
-- Autoplay com transição suave
-- Impacto visual maior e mais moderno
-
-### 🖼️ landing-image.html - Versão com Imagem Banner
+### 🖼️ landing.html - Versão Principal (Imagem Banner)
 - Banner inicial com imagem estática de alta qualidade
 - Performance otimizada para carregamento rápido
 - Visual clean e elegante
 - Compatibilidade universal com todos os navegadores
+- **Versão aprovada como principal**
+
+### 🎥 landing-video.html - Versão Alternativa (Vídeo Banner)
+- Banner inicial com vídeo em movimento
+- Vídeos otimizados para desktop (desk-720.mp4) e mobile (mobile-720.mp4)
+- Autoplay com transição suave e fallback para imagem estática
+- Impacto visual maior e mais moderno
+- **Opção adicional para contextos específicos**
 
 **Acesse:**
-- `http://localhost/cerrado/landing.html` - Versão com vídeo
-- `http://localhost/cerrado/landing-image.html` - Versão com imagem
+- `http://localhost/cerrado/` ou `http://localhost/cerrado/landing.html` - Versão principal (imagem)
+- `http://localhost/cerrado/landing-video.html` - Versão alternativa (vídeo)
 
 ---
 
@@ -116,8 +118,8 @@ O projeto inclui duas versões do site para aprovação do cliente:
 3. **Acesse no navegador**
    ```
    http://localhost/cerrado/              (Página inicial)
-   http://localhost/cerrado/landing.html  (Layout com vídeo banner)
-   http://localhost/cerrado/landing-image.html  (Layout com imagem banner)
+   http://localhost/cerrado/landing.html  (Landing principal - imagem)
+   http://localhost/cerrado/landing-video.html  (Landing alternativa - vídeo)
    ```
 
 ---
@@ -143,12 +145,12 @@ O projeto inclui duas versões do site para aprovação do cliente:
 
 ## 🔧 Funcionalidades
 
-- ✅ **Banner com Vídeo/Imagem** - Duas versões para aprovação
+- ✅ **Banner Responsivo** - Versão principal com imagem + versão alternativa com vídeo
 - ✅ **Scroll Suave** com animações personalizadas
 - ✅ **Animações on Scroll** (AOS - Animate On Scroll)
 - ✅ **Carrosséis Responsivos** (Owl Carousel)
 - ✅ **Menu Fixo** com efeito de transição
-- ✅ **Vídeos Otimizados** para desktop e mobile (720p)
+- ✅ **Vídeos Otimizados** para desktop e mobile com fallback (720p)
 - ✅ **SEO Otimizado** com meta tags completas
 - ✅ **Open Graph** para compartilhamento em redes sociais
 - ✅ **Favicons** para múltiplas plataformas
