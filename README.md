@@ -27,10 +27,11 @@ Site institucional da **Região do Cerrado Mineiro**, apresentando a história, 
 - **HTML5** - Estrutura semântica
 - **CSS3** - Estilização customizada com sistema REM responsivo
 - **Bootstrap 5.3** - Framework CSS
-- **Locomotive Scroll** - Scroll suave e animações
+- **AOS (Animate On Scroll)** - Animações suaves ao rolar a página
 - **JavaScript ES6+** - Interatividade
 - **jQuery** - Manipulação DOM
 - **Owl Carousel** - Carrosséis responsivos
+- **PHP 7.4+** - Backend e processamento
 
 ---
 
@@ -51,6 +52,10 @@ cerrado/
 │   ├── images/
 │   │   ├── 2x/                     # Imagens em alta resolução
 │   │   └── SVG/                    # Ícones e gráficos vetoriais
+│   ├── video/
+│   │   ├── desk-720.mp4            # Vídeo banner desktop (720p)
+│   │   ├── mobile-720.mp4          # Vídeo banner mobile (720p)
+│   │   └── video.mp4               # Vídeo original
 │   ├── fontes/                     # Fontes customizadas
 │   ├── favicon/                    # Favicons e ícones de app
 │   └── lib/
@@ -59,9 +64,33 @@ cerrado/
 │   ├── funcoes.php                 # Funções auxiliares PHP
 │   ├── sessao.php                  # Gerenciamento de sessão
 │   └── PHPMailer_v5.1/             # Envio de e-mails
-├── index.html                      # Página principal
+├── index.html                      # Página de boas-vindas
+├── landing.html                    # Layout com vídeo banner (aprovação)
+├── landing-image.html              # Layout com imagem banner (aprovação)
 └── README.md                       # Este arquivo
 ```
+
+---
+
+## 🎬 Layouts de Aprovação
+
+O projeto inclui duas versões do site para aprovação do cliente:
+
+### 🎥 landing.html - Versão com Vídeo Banner
+- Banner inicial com vídeo em movimento
+- Vídeos otimizados para desktop (desk-720.mp4) e mobile (mobile-720.mp4)
+- Autoplay com transição suave
+- Impacto visual maior e mais moderno
+
+### 🖼️ landing-image.html - Versão com Imagem Banner
+- Banner inicial com imagem estática de alta qualidade
+- Performance otimizada para carregamento rápido
+- Visual clean e elegante
+- Compatibilidade universal com todos os navegadores
+
+**Acesse:**
+- `http://localhost/cerrado/landing.html` - Versão com vídeo
+- `http://localhost/cerrado/landing-image.html` - Versão com imagem
 
 ---
 
@@ -86,7 +115,9 @@ cerrado/
 
 3. **Acesse no navegador**
    ```
-   http://localhost/cerrado/
+   http://localhost/cerrado/              (Página inicial)
+   http://localhost/cerrado/landing.html  (Layout com vídeo banner)
+   http://localhost/cerrado/landing-image.html  (Layout com imagem banner)
    ```
 
 ---
@@ -112,14 +143,17 @@ cerrado/
 
 ## 🔧 Funcionalidades
 
-- ✅ **Scroll Suave** com Locomotive Scroll
-- ✅ **Animações on Scroll** (ScrollReveal)
+- ✅ **Banner com Vídeo/Imagem** - Duas versões para aprovação
+- ✅ **Scroll Suave** com animações personalizadas
+- ✅ **Animações on Scroll** (AOS - Animate On Scroll)
 - ✅ **Carrosséis Responsivos** (Owl Carousel)
 - ✅ **Menu Fixo** com efeito de transição
+- ✅ **Vídeos Otimizados** para desktop e mobile (720p)
 - ✅ **SEO Otimizado** com meta tags completas
 - ✅ **Open Graph** para compartilhamento em redes sociais
 - ✅ **Favicons** para múltiplas plataformas
-- 🚧 **Animações Finais** (em desenvolvimento)
+- ✅ **Sistema REM Responsivo** - Escalonamento proporcional perfeito
+- 🚧 **Animações Avançadas** (em desenvolvimento)
 
 ---
 
