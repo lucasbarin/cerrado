@@ -2,6 +2,7 @@
 
 ![Cerrado Mineiro](https://img.shields.io/badge/Café-Cerrado%20Mineiro-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-2.0-blue?style=for-the-badge)
 
 > **Um Futuro Regenerativo Para o Café**  
 > A primeira origem de café do mundo a adotar a regeneração como visão de desenvolvimento.
