@@ -16,106 +16,12 @@
     <link rel="preload" as="font" type="font/woff2" href="assets/fontes/RaptorTextPremium-Regular.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="assets/fontes/RaptorTextPremium-Medium.woff2" crossorigin>
 
-    <!-- Performance: Preload de Vídeo (baseado no dispositivo) -->
-    <link rel="preload" as="video" href="assets/video/desk-720.mp4" media="(min-width: 992px)">
-    <link rel="preload" as="video" href="assets/video/mobile-720.mp4" media="(max-width: 991px)">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- AOS - Animate On Scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="assets/css/custom.css">
     <link type="text/css" rel="stylesheet" href="assets/css/responsive.css">
-
-    <!-- CSS para Video Background -->
-    <style>
-        /* Garante altura 100vh para o banner */
-        #inicio {
-            height: 100vh !important;
-            min-height: 100vh !important;
-            max-height: 100vh !important;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Video Background - Desktop e Mobile */
-        #inicio .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Sobrescreve o background-image quando o vídeo está carregado */
-        #inicio.video-loaded {
-            background-image: none !important;
-        }
-
-        /* Garante que o conteúdo fique sobre o vídeo */
-        #inicio .navbar {
-            position: relative;
-            z-index: 2;
-            flex-shrink: 0;
-        }
-
-        /* Menu mobile expandido fica sobre tudo */
-        #inicio .navbar-collapse.show,
-        #inicio .navbar-collapse.collapsing {
-            position: relative;
-            z-index: 1000;
-            background-color: var(--verde-escuro);
-            margin-left: -1.5rem;
-            margin-right: -1.5rem;
-            padding: 2rem 1.5rem;
-        }
-
-        /* Ajusta o banner-content para não ultrapassar 100vh */
-        #inicio .banner-content {
-            position: absolute !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            z-index: 2 !important;
-            min-height: auto !important;
-            height: auto !important;
-            padding-bottom: 12rem !important;
-            display: flex !important;
-            align-items: flex-end !important;
-        }
-
-        /* Mantém o pseudo-elemento com o grafismo sobre o vídeo */
-        #inicio::before {
-            z-index: 1;
-        }
-
-        /* Ajustes específicos para mobile */
-        @media (max-width: 991px) {
-            #inicio {
-                height: 100vh !important;
-                min-height: 100vh !important;
-                max-height: 100vh !important;
-            }
-            
-            #inicio .video-background {
-                object-position: center center;
-            }
-
-            #inicio .banner-content {
-                padding-bottom: 8rem !important;
-            }
-
-            /* Quando o menu está aberto, esconde temporariamente o banner-content */
-            body:has(.navbar-toggler[aria-expanded="true"]) #inicio .banner-content {
-                visibility: hidden;
-            }
-        }
-    </style>
 
     <!-- SEO Meta Tags -->
     <title>Região do Cerrado Mineiro - Um Futuro Regenerativo Para o Café</title>
@@ -159,13 +65,6 @@
 
 
     <section id="inicio">
-        <!-- Video Background -->
-        <video id="videoBanner" class="video-background" autoplay muted loop playsinline poster="assets/images/2x/img-banner.jpg">
-            <source src="assets/video/desk-720.mp4" type="video/mp4" media="(min-width: 992px)">
-            <source src="assets/video/mobile-720.mp4" type="video/mp4" media="(max-width: 991px)">
-            Seu navegador não suporta vídeos HTML5.
-        </video>
-        
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#" data-aos="fade-up" data-aos-anchor="#inicio" data-aos-delay="0">
@@ -985,63 +884,6 @@
     <!-- AOS - Animate On Scroll -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="assets/js/custom.js"></script>
-
-    <!-- Script para gerenciar Video Background Responsivo -->
-    <script>
-        (function() {
-            const videoBanner = document.getElementById('videoBanner');
-            const inicioSection = document.getElementById('inicio');
-            let currentDevice = window.innerWidth >= 992 ? 'desktop' : 'mobile';
-
-            // Função para trocar vídeo baseado no tamanho da tela
-            function switchVideo() {
-                const newDevice = window.innerWidth >= 992 ? 'desktop' : 'mobile';
-                
-                if (newDevice !== currentDevice) {
-                    currentDevice = newDevice;
-                    const newSrc = currentDevice === 'desktop' 
-                        ? 'assets/video/desk-720.mp4' 
-                        : 'assets/video/mobile-720.mp4';
-                    
-                    if (videoBanner.src !== newSrc) {
-                        videoBanner.src = newSrc;
-                        videoBanner.load();
-                    }
-                }
-            }
-
-            // Seta o vídeo correto no carregamento inicial
-            switchVideo();
-
-            // Quando o vídeo começar a tocar, marca como carregado
-            videoBanner.addEventListener('loadeddata', function() {
-                inicioSection.classList.add('video-loaded');
-            });
-
-            // Garante que o vídeo tente tocar
-            videoBanner.addEventListener('canplay', function() {
-                videoBanner.play().catch(function(error) {
-                    console.log('Autoplay não permitido:', error);
-                    // Fallback: mantém a imagem de fundo do CSS
-                });
-            });
-
-            // Fallback: remove classe se houver erro no carregamento
-            videoBanner.addEventListener('error', function() {
-                console.log('Erro ao carregar vídeo. Usando imagem de fallback.');
-                inicioSection.classList.remove('video-loaded');
-            });
-
-            // Monitora mudanças no tamanho da janela (com debounce)
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    switchVideo();
-                }, 250);
-            });
-        })();
-    </script>
 </body>
 
 </html>
