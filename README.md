@@ -1,8 +1,8 @@
 # 🌱 Região do Cerrado Mineiro
 
 ![Cerrado Mineiro](https://img.shields.io/badge/Café-Cerrado%20Mineiro-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-2.0-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Produção-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0-blue?style=for-the-badge)
 
 > **Um Futuro Regenerativo Para o Café**  
 > A primeira origem de café do mundo a adotar a regeneração como visão de desenvolvimento.
@@ -53,41 +53,30 @@ cerrado/
 │   │   └── SVG/                    # Ícones e gráficos vetoriais
 │   ├── video/
 │   │   ├── desk-720.mp4            # Vídeo banner desktop (720p)
-│   │   ├── mobile-720.mp4          # Vídeo banner mobile (720p)
-│   │   └── video.mp4               # Vídeo original
-│   ├── fontes/                     # Fontes customizadas
+│   │   └── mobile-720.mp4          # Vídeo banner mobile (720p)
+│   ├── fonts/                      # Fontes web (Raptor Text Premium)
+│   ├── downloads/                  # Assets para download (logos, mapas)
 │   ├── favicon/                    # Favicons e ícones de app
 │   └── lib/
 │       └── owlcarousel/            # Biblioteca de carrossel
 ├── index.html                      # Página de boas-vindas
-├── landing.html                    # Landing page principal (imagem banner)
-├── landing-video.html              # Landing page alternativa (vídeo banner)
+├── landing.html                    # Landing page principal (vídeo banner)
 └── README.md                       # Este arquivo
 ```
 
 ---
 
-## 🎬 Layouts de Aprovação
+## 🎬 Layout Principal
 
-O projeto inclui duas versões do site para apresentação:
-
-### 🖼️ landing.html - Versão Principal (Imagem Banner)
-- Banner inicial com imagem estática de alta qualidade
-- Performance otimizada para carregamento rápido
-- Visual clean e elegante
-- Compatibilidade universal com todos os navegadores
-- **Versão aprovada como principal**
-
-### 🎥 landing-video.html - Versão Alternativa (Vídeo Banner)
+### 🎥 landing.html - Versão com Vídeo Banner
 - Banner inicial com vídeo em movimento
 - Vídeos otimizados para desktop (desk-720.mp4) e mobile (mobile-720.mp4)
 - Autoplay com transição suave e fallback para imagem estática
-- Impacto visual maior e mais moderno
-- **Opção adicional para contextos específicos**
+- Sistema de detecção de dispositivo para vídeo apropriado
+- **Versão aprovada e em produção**
 
 **Acesse:**
-- `http://localhost/cerrado/` ou `http://localhost/cerrado/landing.html` - Versão principal (imagem)
-- `http://localhost/cerrado/landing-video.html` - Versão alternativa (vídeo)
+- `http://localhost/cerrado/` ou `http://localhost/cerrado/landing.html`
 
 ---
 
@@ -115,8 +104,7 @@ O projeto inclui duas versões do site para apresentação:
 3. **Acesse no navegador**
    ```
    http://localhost/cerrado/              (Página inicial)
-   http://localhost/cerrado/landing.html  (Landing principal - imagem)
-   http://localhost/cerrado/landing-video.html  (Landing alternativa - vídeo)
+   http://localhost/cerrado/landing.html  (Landing page principal)
    ```
 
 ---
@@ -142,7 +130,7 @@ O projeto inclui duas versões do site para apresentação:
 
 ## 🔧 Funcionalidades
 
-- ✅ **Banner Responsivo** - Versão principal com imagem + versão alternativa com vídeo
+- ✅ **Banner Responsivo** - Versão principal com vídeo banner
 - ✅ **Scroll Suave** com animações personalizadas
 - ✅ **Animações on Scroll** (AOS - Animate On Scroll)
 - ✅ **Carrosséis Responsivos** (Owl Carousel)
@@ -152,7 +140,7 @@ O projeto inclui duas versões do site para apresentação:
 - ✅ **Open Graph** para compartilhamento em redes sociais
 - ✅ **Favicons** para múltiplas plataformas
 - ✅ **Sistema REM Responsivo** - Escalonamento proporcional perfeito
-- 🚧 **Animações Avançadas** (em desenvolvimento)
+- ✅ **Downloads de Assets** - Logotipos e mapas disponíveis
 
 ---
 

@@ -350,7 +350,7 @@ a:has(img)::after {
   background-position: left bottom;
   background-repeat: no-repeat;
   mix-blend-mode: multiply;
-  opacity: 0.45;
+  opacity: 0.20;
   pointer-events: none;
 }
 
@@ -508,7 +508,7 @@ a:has(img)::after {
   background-position: left bottom;
   background-repeat: no-repeat;
   mix-blend-mode: multiply;
-  opacity: 0.45;
+  opacity: 0.35;
   pointer-events: none;
   /* Permite cliques através do pseudo-elemento */
   z-index: 1;
@@ -1325,6 +1325,7 @@ p,
     /* Compensa margem da rotação já que está apoiado embaixo e à direita */
     margin-bottom: -2rem;
     margin-right: -2rem;
+    opacity: 0.35;
   }
 
   #inicio .video-background {
@@ -1560,6 +1561,9 @@ p,
     /* 194px */
     height: 5.8rem;
     /* 58px */
+   
+    margin-bottom: 20.375rem;
+
   }
 
   /* Alinhamento à esquerda */
@@ -1887,7 +1891,7 @@ p,
     flex-direction: column;
     justify-content: space-between;
     padding-top: 0;
-    padding-bottom: 28rem;
+    padding-bottom: 45rem;
   }
 
   .welcome-row > div:first-child {

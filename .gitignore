@@ -1,6 +1,10 @@
 # Arquivos de design e recursos
 _ARQUIVOS/
 
+# Arquivos de backup e teste
+bk-landing.html
+teste.html
+
 # Sistema operacional
 .DS_Store
 Thumbs.db

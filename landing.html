@@ -64,6 +64,68 @@
     <meta name="apple-mobile-web-app-title" content="Cerrado Minieiro" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
 
+    <!-- Hack Visual para Safari iOS - Aumenta altura e faz scroll automático -->
+    <style>
+        /* Aplica APENAS quando JavaScript adicionar a classe safari-ios-only */
+        /* Isso garante que só funciona no Safari iOS detectado via JS */
+        @media screen and (max-width: 991px) {
+            /* Aumenta a altura da seção inicial para 115vh (15vh a mais) */
+            .safari-ios-only #inicio {
+                min-height: 115vh !important;
+                height: 115vh !important;
+                max-height: none !important;
+            }
+            
+            /* Garante que o vídeo cubra toda a nova altura */
+            .safari-ios-only #inicio .video-background {
+                height: 115vh !important;
+                min-height: 115vh !important;
+                max-height: none !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                object-fit: cover !important;
+            }
+            
+            /* Garante que o ::before (background fallback) também cubra */
+            .safari-ios-only #inicio::before {
+                height: 115vh !important;
+                min-height: 115vh !important;
+            }
+            
+            /* Compensa a posição do botão "Rolar" */
+            .safari-ios-only #inicio .rolar {
+                margin-bottom: 30.375rem !important;
+            }
+            
+            /* Compensa a posição do headline */
+            .safari-ios-only #inicio .headline {
+                margin-bottom: 9.375rem !important;
+            }
+            
+            /* Navbar comportamento especial */
+            .safari-ios-only #inicio .navbar {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                transition: transform 0.3s ease !important;
+            }
+            
+            /* Classe para esconder navbar quando rolar */
+            .safari-ios-only #inicio .navbar.safari-hide {
+                transform: translateY(-100%) !important;
+            }
+            
+            /* Compensa o logotipo no banner-content se necessário */
+            .safari-ios-only #inicio .banner-content {
+                margin-bottom: 9.375rem !important;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -152,12 +214,12 @@
                             meio ambiente, as pessoas e os negócios prosperam em harmonia.
                         </p>
 
-                        <h5 data-aos="fade-up" data-aos-anchor="#a-jornada" data-aos-delay="500">De produto á visão de
+                        <h5 data-aos="fade-up" data-aos-anchor="#a-jornada" data-aos-delay="500">De produto à visão de
                             mundo.</h5>
                         <p data-aos="fade-up" data-aos-anchor="#a-jornada" data-aos-delay="600">Nossa estratégia avança
-                            em uma direção clara: ampliar uma identidade ja reconhecida <br>
+                            em uma direção clara: ampliar uma identidade já reconhecida <br>
                             pela qualidade do produto para uma identidade que integra visão de mundo, projetos <br>
-                            conectados e geração de impacto real para o território. <br>
+                            conectados e geração de impacto real para o território. <br><br>
                             Uma marca territorial não apenas promove produtos. Ela educa, engaja e inspira <br>
                             mudanças reais, gerando valor compartilhado para todo o ecossistema do território.</p>
 
@@ -197,11 +259,11 @@
                             meio ambiente, as pessoas e os negócios<br>
                             prosperam em harmonia.</p>
 
-                        <h5 data-aos="fade-up" data-aos-anchor="#a-jornada" data-aos-delay="500">De produto á<br>visão
+                        <h5 data-aos="fade-up" data-aos-anchor="#a-jornada" data-aos-delay="500">De produto à<br>visão
                             de mundo.</h5>
                         <p data-aos="fade-up" data-aos-anchor="#a-jornada" data-aos-delay="600">Nossa estratégia avança
                             em uma direção<br>
-                            clara: ampliar uma identidade ja reconhecida<br>
+                            clara: ampliar uma identidade já reconhecida<br>
                             pela qualidade do produto para uma identidade<br>
                             que integra visão de mundo, projetos conectados<br>
                             e geração de impacto real para o território.<br> <br>
@@ -897,6 +959,102 @@
     <!-- AOS - Animate On Scroll -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="assets/js/custom.js"></script>
+
+    <!-- Hack Safari iOS: Scroll automático após loading para esconder área extra -->
+    <script>
+        (function() {
+            // Detecta APENAS Safari iOS (não Chrome, Firefox, etc)
+            const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+            const isSafari = /Safari/.test(navigator.userAgent);
+            const isChrome = /CriOS|Chrome/.test(navigator.userAgent);
+            const isFirefox = /FxiOS|Firefox/.test(navigator.userAgent);
+            const isOpera = /OPiOS|Opera/.test(navigator.userAgent);
+            const isEdge = /EdgiOS|Edg/.test(navigator.userAgent);
+            
+            const isSafariIOS = isIOS && isSafari && !isChrome && !isFirefox && !isOpera && !isEdge;
+            const isMobile = window.innerWidth <= 991;
+            
+            if (isSafariIOS && isMobile) {
+                // Adiciona classe especial no body para ativar os estilos CSS
+                document.documentElement.classList.add('safari-ios-only');
+                
+                // Calcula o scroll necessário (aproximadamente 12rem para alcançar o topo)
+                // Isso vai "esconder" a parte extra do vídeo que está acima e cobrir a barra do Safari
+                const scrollAmount = parseFloat(getComputedStyle(document.documentElement).fontSize) * 12;
+                
+                // Aguarda o loading overlay desaparecer
+                const checkLoadingAndScroll = setInterval(function() {
+                    const loadingOverlay = document.getElementById('loading-overlay');
+                    
+                    if (loadingOverlay) {
+                        const opacity = window.getComputedStyle(loadingOverlay).opacity;
+                        const display = window.getComputedStyle(loadingOverlay).display;
+                        
+                        // Quando o loading estiver escondido (opacity 0 ou display none)
+                        if (opacity === '0' || display === 'none') {
+                            clearInterval(checkLoadingAndScroll);
+                            
+                            // Faz scroll suave para esconder a área extra
+                            setTimeout(function() {
+                                window.scrollTo({
+                                    top: scrollAmount,
+                                    behavior: 'smooth'
+                                });
+                            }, 100);
+                        }
+                    }
+                }, 100);
+                
+                // Timeout de segurança: se após 5 segundos não encontrar o loading, faz o scroll mesmo assim
+                setTimeout(function() {
+                    clearInterval(checkLoadingAndScroll);
+                    if (window.scrollY === 0) {
+                        window.scrollTo({
+                            top: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 5000);
+            }
+        })();
+    </script>
+
+    <!-- Script para controlar navbar no Safari iOS -->
+    <script>
+        (function() {
+            // Detecta APENAS Safari iOS (não Chrome, Firefox, etc)
+            const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+            const isSafari = /Safari/.test(navigator.userAgent);
+            const isChrome = /CriOS|Chrome/.test(navigator.userAgent);
+            const isFirefox = /FxiOS|Firefox/.test(navigator.userAgent);
+            const isOpera = /OPiOS|Opera/.test(navigator.userAgent);
+            const isEdge = /EdgiOS|Edg/.test(navigator.userAgent);
+            
+            const isSafariIOS = isIOS && isSafari && !isChrome && !isFirefox && !isOpera && !isEdge;
+            const isMobile = window.innerWidth <= 991;
+            
+            if (isSafariIOS && isMobile) {
+                const navbar = document.querySelector('#inicio .navbar');
+                const scrollThreshold = parseFloat(getComputedStyle(document.documentElement).fontSize) * 12;
+                
+                if (navbar) {
+                    // Monitora o scroll
+                    window.addEventListener('scroll', function() {
+                        const currentScroll = window.scrollY;
+                        
+                        // Se o scroll está próximo ao início (dentro do threshold + 50px de margem)
+                        if (currentScroll <= scrollThreshold + 50) {
+                            // Mostra navbar fixed
+                            navbar.classList.remove('safari-hide');
+                        } else {
+                            // Esconde navbar quando rolar além do threshold
+                            navbar.classList.add('safari-hide');
+                        }
+                    }, { passive: true });
+                }
+            }
+        })();
+    </script>
 
     <!-- Script para gerenciar Video Background Responsivo -->
     <script>
