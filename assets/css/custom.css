@@ -350,10 +350,8 @@ a:has(img)::after {
   background-position: left bottom;
   background-repeat: no-repeat;
   mix-blend-mode: multiply;
-  opacity: 0.3;
+  opacity: 0.45;
   pointer-events: none;
-  animation: rotacao-suave 8s ease-in-out infinite;
-  transform-origin: center center;
 }
 
 .welcome-row {
@@ -409,18 +407,7 @@ a:has(img)::after {
   width: 100%;
 }
 
-/* Animação suave de rotação para grafismo */
-@keyframes rotacao-suave {
-
-  0%,
-  100% {
-    transform: rotate(-2deg) scale(1.1) translateY(5%);
-  }
-
-  50% {
-    transform: rotate(2deg) scale(1.1) translateY(5%);
-  }
-}
+/* Animação de rotação removida - grafismo agora é estático */
 
 /* Animação de scroll hint para botão rolar */
 @keyframes scroll-hint {
@@ -473,18 +460,40 @@ a:has(img)::after {
 }
 
 #inicio {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
   max-width: 255rem;
   /* 2550px */
   margin: 0 auto;
-  min-height: 119rem;
-  /* 1190px */
-  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background-image: url('../images/2x/img-banner.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  position: relative;
   overflow: hidden;
+}
+
+/* Video Background - Desktop e Mobile */
+#inicio .video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Quando o vídeo carrega, mostra o vídeo sobre a imagem */
+#inicio.video-loaded .video-background {
+  opacity: 1;
 }
 
 #inicio::before {
@@ -499,16 +508,24 @@ a:has(img)::after {
   background-position: left bottom;
   background-repeat: no-repeat;
   mix-blend-mode: multiply;
-  opacity: 0.3;
+  opacity: 0.45;
   pointer-events: none;
   /* Permite cliques através do pseudo-elemento */
-  animation: rotacao-suave 8s ease-in-out infinite;
-  transform-origin: center center;
+  z-index: 1;
 }
 
 /* ========================================
    NAVBAR
    ========================================== */
+#inicio .navbar {
+  background-color: transparent;
+  padding: 10.5rem 0 0 0;
+  /* 105px */
+  position: relative;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
 .navbar {
   background-color: transparent;
   padding: 10.5rem 0 0 0;
@@ -593,6 +610,19 @@ a:has(img)::after {
   /* Espaço da borda inferior */
   pointer-events: none;
   /* Permite cliques através do container */
+}
+
+#inicio .banner-content {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2 !important;
+  min-height: auto !important;
+  height: auto !important;
+  padding-bottom: 12rem !important;
+  display: flex !important;
+  align-items: flex-end !important;
 }
 
 .banner-content .row {
@@ -877,11 +907,12 @@ p,
   display: flex;
   flex-direction: column;
   width: 100%;
-  transition: filter 0.3s ease;
+  transition: 0.3s;
 }
 
 .card-proposito:hover {
-  filter: brightness(1.15);
+  background-color: #079C6B;
+    transition: 0.3s;
 }
 
 .card-proposito h5 {
@@ -1279,6 +1310,9 @@ p,
      BANNER MOBILE
      ======================================== */
   #inicio {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
     background-image: url('../images/2x/bg-banner-mobile.jpg');
     background-size: cover;
     background-position: center top;
@@ -1291,6 +1325,16 @@ p,
     /* Compensa margem da rotação já que está apoiado embaixo e à direita */
     margin-bottom: -2rem;
     margin-right: -2rem;
+  }
+
+  #inicio .video-background {
+    object-position: center center;
+  }
+
+  #inicio .navbar-toggler {
+    position: absolute;
+    top: 22.9rem;
+    right: 5rem;
   }
 
   /* ========================================
@@ -1487,9 +1531,18 @@ p,
     /* Abaixo do menu e botão */
   }
 
+  #inicio .banner-content {
+    padding-bottom: 36rem !important;
+  }
+
   /* SOLUÇÃO DEFINITIVA: Quando menu aberto, banner-content fica ainda mais abaixo */
   body:has(.navbar-toggler[aria-expanded="true"]) .banner-content {
     z-index: -1;
+  }
+
+  /* Quando o menu está aberto, esconde o banner-content */
+  body:has(.navbar-toggler[aria-expanded="true"]) #inicio .banner-content {
+    display: none !important;
   }
 
   .headline {
@@ -1522,6 +1575,10 @@ p,
     /* 170px */
     padding-bottom: 17rem;
     /* 170px */
+  }
+
+  #a-jornada + .spacer-sessao {
+    padding-top: 23rem;
   }
 
   #cards-proposito {
@@ -1756,17 +1813,6 @@ p,
     /* 17rem (padding-bottom da seção anterior) + 4rem = 21rem total */
     padding-bottom: 0;
     /* Remove qualquer padding-bottom para não somar com a próxima seção */
-  }
-
-  /* Vídeo - borda a borda no mobile (remove padding do container) */
-  .video-section.container {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .video-section .row {
-    margin-left: 0;
-    margin-right: 0;
   }
 
   /* O PROPÓSITO - Espaçamentos Mobile */

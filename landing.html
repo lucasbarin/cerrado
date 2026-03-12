@@ -16,6 +16,10 @@
     <link rel="preload" as="font" type="font/woff2" href="assets/fontes/RaptorTextPremium-Regular.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="assets/fontes/RaptorTextPremium-Medium.woff2" crossorigin>
 
+    <!-- Performance: Preload de Vídeo (baseado no dispositivo) -->
+    <link rel="preload" as="video" href="assets/video/desk-720.mp4" media="(min-width: 992px)">
+    <link rel="preload" as="video" href="assets/video/mobile-720.mp4" media="(max-width: 991px)">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- AOS - Animate On Scroll -->
@@ -23,29 +27,6 @@
     <link type="text/css" rel="stylesheet" href="assets/fontes/fontes.css">
     <link type="text/css" rel="stylesheet" href="assets/css/custom.css">
     <link type="text/css" rel="stylesheet" href="assets/css/responsive.css">
-
-    <!-- CSS específico para landing-image -->
-    <style>
-        /* Garante que o navbar não seja fixed */
-        #inicio .navbar {
-            position: relative !important;
-        }
-
-        /* Ajustes específicos para mobile */
-        @media (max-width: 991px) {
-            /* Posiciona o navbar-toggler corretamente no mobile */
-            #inicio .navbar-toggler {
-                position: absolute;
-                top: 22.9rem;
-                right: 5rem;
-            }
-
-            /* Quando o menu está aberto, esconde o banner-content */
-            body:has(.navbar-toggler[aria-expanded="true"]) #inicio .banner-content {
-                display: none !important;
-            }
-        }
-    </style>
 
     <!-- SEO Meta Tags -->
     <title>Região do Cerrado Mineiro - Um Futuro Regenerativo Para o Café</title>
@@ -89,6 +70,14 @@
 
 
     <section id="inicio">
+        <!-- Video Background -->
+        <video id="videoBanner" class="video-background" autoplay muted loop playsinline
+            poster="assets/images/2x/img-banner.jpg">
+            <source src="assets/video/desk-720.mp4" type="video/mp4" media="(min-width: 992px)">
+            <source src="assets/video/mobile-720.mp4" type="video/mp4" media="(max-width: 991px)">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#" data-aos="fade-up" data-aos-anchor="#inicio" data-aos-delay="0">
@@ -376,7 +365,7 @@
                         data-aos-delay="0">
                 </div>
 
-                <div class="col-6 offset-2 text-center d-block d-lg-none">
+                <div class="col-6 offset-2 text-end d-block d-lg-none">
                     <img src="assets/images/SVG/mapa-cerrado.svg" alt="Mapa Cerrado Mineiro" class="mapa" loading="lazy"
                         data-aos="fade-up" data-aos-anchor="#denominacao-origem" data-aos-delay="100">
                 </div>
@@ -430,7 +419,7 @@
                     </span>
                 </div>
 
-                <div class="col-4 text-center d-none d-lg-block">
+                <div class="col-4 text-end d-none d-lg-block">
                     <img src="assets/images/SVG/mapa-cerrado.svg" alt="Mapa Cerrado Mineiro" class="mapa" loading="lazy"
                         data-aos="fade-up" data-aos-anchor="#denominacao-origem" data-aos-delay="400">
 
@@ -626,8 +615,8 @@
                                     </button>
                                 </div>
                                 <div class="faq-answer">
-                                    <p class="corpo">Não apenas. A visão regenerativa é uma filosofia de desenvolvimento
-                                        — que se aplica ao modo como produzimos, inovamos, nos organizamos e vivemos. A
+                                    <p class="corpo">Não apenas. A visão regenerativa é uma filosofia de desenvolvimento,
+                                        que se aplica ao modo como produzimos, inovamos, nos organizamos e vivemos. A
                                         agricultura regenerativa é uma prática dentro desse universo, não o universo
                                         inteiro.</p>
                                 </div>
@@ -646,7 +635,7 @@
                                 </div>
                                 <div class="faq-answer">
                                     <p class="corpo">Uma marca territorial não promove apenas produtos. Ela educa,
-                                        engaja e inspira mudanças reais — gerando valor compartilhado para todo o
+                                        engaja e inspira mudanças reais, gerando valor compartilhado para todo o
                                         ecossistema de um lugar. É a ideia que une produtores, cooperativas, parceiros e
                                         comunidades em torno de um propósito comum.</p>
                                 </div>
@@ -686,7 +675,7 @@
                                 <div class="faq-answer">
                                     <p class="corpo">A identidade coletiva da região se fortalece. Cada produtor passa a
                                         fazer parte de um ecossistema de marca com mais força e mais alcance. Não é
-                                        apenas um café de origem — é um café que carrega um propósito.</p>
+                                        apenas um café de origem, é um café que carrega um propósito.</p>
                                 </div>
                             </div>
 
@@ -739,10 +728,10 @@
                         <h1 data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="200">Downloads</h1>
                     </div>
                     <div class="col-lg-2">
-                        <p data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="300"><a href="">Imagens</a></p>
+                        <p data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="300"><a href="assets/downloads/Logotipos_RCM_DO.zip">Logotipos</a></p>
                     </div>
                     <div class="col-lg-2">
-                        <p data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="400"><a href="">Mapas</a></p>
+                        <p data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="400"><a href="assets/downloads/Mapas_RCM.zip">Mapas</a></p>
                     </div>
                     <div class="col-lg-2">
                         <p data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="500"><a href="">Imagens</a></p>
@@ -908,6 +897,98 @@
     <!-- AOS - Animate On Scroll -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="assets/js/custom.js"></script>
+
+    <!-- Script para gerenciar Video Background Responsivo -->
+    <script>
+        (function () {
+            const videoBanner = document.getElementById('videoBanner');
+            const inicioSection = document.getElementById('inicio');
+            let currentDevice = window.innerWidth >= 992 ? 'desktop' : 'mobile';
+            let videoLoadAttempts = 0;
+            const maxAttempts = 2;
+
+            // Função para trocar vídeo baseado no tamanho da tela
+            function switchVideo() {
+                const newDevice = window.innerWidth >= 992 ? 'desktop' : 'mobile';
+
+                if (newDevice !== currentDevice) {
+                    currentDevice = newDevice;
+                    videoLoadAttempts = 0;
+                    inicioSection.classList.remove('video-loaded');
+                    loadVideo();
+                }
+            }
+
+            // Função para carregar o vídeo correto
+            function loadVideo() {
+                const videoSrc = currentDevice === 'desktop'
+                    ? 'assets/video/desk-720.mp4'
+                    : 'assets/video/mobile-720.mp4';
+
+                videoBanner.src = videoSrc;
+                videoBanner.load();
+            }
+
+            // Seta o vídeo correto no carregamento inicial
+            loadVideo();
+
+            // Quando o vídeo está pronto para tocar
+            videoBanner.addEventListener('loadeddata', function () {
+                console.log('Vídeo carregado com sucesso');
+                inicioSection.classList.add('video-loaded');
+            });
+
+            // Quando metadados do vídeo são carregados
+            videoBanner.addEventListener('loadedmetadata', function () {
+                console.log('Metadados do vídeo carregados');
+            });
+
+            // Garante que o vídeo tente tocar
+            videoBanner.addEventListener('canplay', function () {
+                videoBanner.play().catch(function (error) {
+                    console.log('Autoplay não permitido:', error);
+                    // Fallback: mantém a imagem de fundo do CSS
+                    inicioSection.classList.remove('video-loaded');
+                });
+            });
+
+            // Quando o vídeo começa a tocar
+            videoBanner.addEventListener('playing', function () {
+                console.log('Vídeo reproduzindo');
+                inicioSection.classList.add('video-loaded');
+            });
+
+            // Fallback: remove classe se houver erro no carregamento
+            videoBanner.addEventListener('error', function (e) {
+                videoLoadAttempts++;
+                console.log('Erro ao carregar vídeo (tentativa ' + videoLoadAttempts + '). Usando imagem de fallback.', e);
+                inicioSection.classList.remove('video-loaded');
+
+                // Após 2 tentativas, desiste e mantém a imagem
+                if (videoLoadAttempts >= maxAttempts) {
+                    console.log('Máximo de tentativas atingido. Mantendo imagem de fundo.');
+                    videoBanner.style.display = 'none';
+                }
+            });
+
+            // Timeout: se após 5 segundos o vídeo não carregar, usa imagem
+            setTimeout(function () {
+                if (!inicioSection.classList.contains('video-loaded')) {
+                    console.log('Timeout: vídeo não carregou. Usando imagem de fallback.');
+                    inicioSection.classList.remove('video-loaded');
+                }
+            }, 5000);
+
+            // Monitora mudanças no tamanho da janela (com debounce)
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    switchVideo();
+                }, 250);
+            });
+        })();
+    </script>
 </body>
 
 </html>
