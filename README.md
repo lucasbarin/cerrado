@@ -2,10 +2,12 @@
 
 ![Cerrado Mineiro](https://img.shields.io/badge/Café-Cerrado%20Mineiro-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Produção-brightgreen?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-1.0-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-2.0-blue?style=for-the-badge)
 
 > **Um Futuro Regenerativo Para o Café**  
 > A primeira origem de café do mundo a adotar a regeneração como visão de desenvolvimento.
+
+**🌐 Domínio de Produção:** [cerradomineiro.org](https://cerradomineiro.org)
 
 ---
 
@@ -141,16 +143,48 @@ cerrado/
 - ✅ **Favicons** para múltiplas plataformas
 - ✅ **Sistema REM Responsivo** - Escalonamento proporcional perfeito
 - ✅ **Downloads de Assets** - Logotipos e mapas disponíveis
+- ✅ **Safari iOS Fix** - Correção específica para barras de navegação dinâmicas
+- ✅ **Cross-browser Compatibility** - Testado em todos os principais navegadores
 
 ---
 
-## 📱 Responsividade
+## 🔧 Otimizações Técnicas
+
+### Performance
+- **Vídeos Otimizados**: 720p com compressão eficiente
+- **Lazy Loading**: Imagens carregadas sob demanda
+- **DNS Prefetch**: Para CDNs externos
+- **Preload**: Fontes e vídeos críticos
+
+### Safari iOS Fix
+Implementado um fix específico para resolver o problema de viewport em Safari iOS:
+- Detecta **exclusivamente Safari iOS** (não afeta Chrome, Firefox ou outros)
+- Ajusta altura para 115vh para compensar barras de navegação dinâmicas
+- Scroll automático após loading para posicionamento correto
+- Navbar fixed que se esconde ao rolar
+- Não interfere em outros navegadores ou plataformas
+
+**Arquivos com o fix:**
+- `landing.html` (versão de produção)
+- `teste.html` (versão de testes)
+
+---
+
+## 📱 Responsividade & Compatibilidade
 
 O site é totalmente responsivo e testado em:
 
+**Dispositivos:**
 - 📱 **Mobile**: 320px - 767px
 - 📱 **Tablet**: 768px - 1024px
 - 💻 **Desktop**: 1025px - 1920px+
+
+**Navegadores:**
+- ✅ Chrome (desktop & mobile)
+- ✅ Safari (desktop & iOS) - com fix específico
+- ✅ Firefox (desktop & mobile)
+- ✅ Edge
+- ✅ Opera
 
 ---
 
@@ -161,6 +195,41 @@ O site é totalmente responsivo e testado em:
 - Twitter Cards
 - Structured data (em desenvolvimento)
 - Sitemap XML (em desenvolvimento)
+
+---
+
+## 🚀 Deploy / Produção
+
+### Checklist para Deploy
+
+- [x] Testar em todos os navegadores principais (Chrome, Safari, Firefox, Edge)
+- [x] Validar Safari iOS (fix aplicado em landing.html)
+- [x] Verificar responsividade em todos os breakpoints
+- [x] Otimizar vídeos e imagens
+- [x] Validar meta tags e SEO
+- [x] Testar formulários e links
+- [ ] Configurar domínio: **cerradomineiro.org**
+- [ ] Configurar SSL/HTTPS
+- [ ] Setup de servidor (Apache/Nginx)
+- [ ] Configurar redirects (www → non-www ou vice-versa)
+- [ ] Google Analytics / Tag Manager
+- [ ] Sitemap XML e robots.txt
+- [ ] Teste de velocidade (Google PageSpeed Insights)
+
+### Arquivos Importantes para Produção
+
+- `landing.html` - Landing page principal (recomendado como index)
+- `index.html` - Página alternativa
+- `assets/` - Todos os assets (não remover nenhum arquivo)
+- `.htaccess` (se Apache) - Para redirects e cache
+- `robots.txt` - Para SEO
+- `sitemap.xml` - Para SEO
+
+### Configuração do Domínio
+
+1. Apontar DNS do domínio **cerradomineiro.org** para o servidor
+2. Configurar certificado SSL (Let's Encrypt recomendado)
+3. Testar HTTPS e redirects
 
 ---
 
@@ -186,8 +255,10 @@ Desenvolvimento Web & Design
 ## 📞 Contato
 
 Para mais informações sobre a Região do Cerrado Mineiro:
-- 🌐 Website: [regiaocerradomineiro.com.br](https://regiaocerradomineiro.com.br)
-- 📧 E-mail: contato@regiaocerradomineiro.com.br
+- 🌐 Website: [cerradomineiro.org](https://cerradomineiro.org)
+- 📧 E-mail: comunicacao@cerradomineiro.org
+- 📘 Facebook: [@cerradomineirooficial](https://www.facebook.com/cerradomineirooficial/)
+- 📷 Instagram: [@cerradomineirooficial](https://www.instagram.com/cerradomineirooficial/)
 
 ---
 

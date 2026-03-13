@@ -69,17 +69,17 @@
         /* Aplica APENAS quando JavaScript adicionar a classe safari-ios-only */
         /* Isso garante que só funciona no Safari iOS detectado via JS */
         @media screen and (max-width: 991px) {
-            /* Aumenta a altura da seção inicial para 115vh (15vh a mais) */
+            /* Aumenta a altura da seção inicial para 100vh (15vh a mais) */
             .safari-ios-only #inicio {
-                min-height: 115vh !important;
-                height: 115vh !important;
+                min-height: 100vh !important;
+                height: 100vh !important;
                 max-height: none !important;
             }
             
             /* Garante que o vídeo cubra toda a nova altura */
             .safari-ios-only #inicio .video-background {
-                height: 115vh !important;
-                min-height: 115vh !important;
+                height: 100vh !important;
+                min-height: 100vh !important;
                 max-height: none !important;
                 position: absolute !important;
                 top: 0 !important;
@@ -90,18 +90,18 @@
             
             /* Garante que o ::before (background fallback) também cubra */
             .safari-ios-only #inicio::before {
-                height: 115vh !important;
-                min-height: 115vh !important;
+                height: 100vh !important;
+                min-height: 100vh !important;
             }
             
             /* Compensa a posição do botão "Rolar" */
             .safari-ios-only #inicio .rolar {
-                margin-bottom: 30.375rem !important;
+                margin-bottom: 3.375rem !important;
             }
             
             /* Compensa a posição do headline */
             .safari-ios-only #inicio .headline {
-                margin-bottom: 9.375rem !important;
+                margin-bottom: 23.375rem !important;
             }
             
             /* Navbar comportamento especial */
@@ -774,7 +774,7 @@
                                 </div>
                                 <div class="faq-answer">
                                     <p class="corpo">Este é um convite aberto. Para produtores, cooperativas, parceiros
-                                        e lideranças que acreditam que é possível fazer diferente. Entre em contato
+                                        e lideranças que acreditam que é possível fazer diferente. <br>Entre em contato
                                         conosco: <a
                                             href="mailto:comunicacao@cerradomineiro.org">comunicacao@cerradomineiro.org</a>
                                     </p>
@@ -795,9 +795,9 @@
                     <div class="col-lg-2">
                         <p data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="400"><a href="assets/downloads/Mapas_RCM.zip">Mapas</a></p>
                     </div>
-                    <div class="col-lg-2">
+                  <!--<div class="col-lg-2">
                         <p data-aos="fade-up" data-aos-anchor="#faq" data-aos-delay="500"><a href="">Imagens</a></p>
-                    </div>
+                    </div>-->  
                 </div>
             </div>
 

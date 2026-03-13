@@ -78,7 +78,7 @@ $(document).ready(function (){
             });
             
             const source = $('<source>', {
-                src: 'assets/video/video.mp4',
+                src: 'assets/video/video-rcm1920x1080.mp4',
                 type: 'video/mp4'
             });
             
